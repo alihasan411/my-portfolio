@@ -11,6 +11,21 @@
 .buttons button:hover { background: cyan; color: black; }
 .clear { grid-column: span 4; background: red; }
 
+
+.project-buttons a {
+  display: inline-block;
+  padding: 8px 15px;
+  margin: 5px;
+  background: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.project-buttons a:hover {
+  background: #555;
+}
+
     </style>
     </head>
     
@@ -35,6 +50,12 @@
 <button onclick="press('+')">+</button>
 
 <button onclick="clearDisplay()" class="clear">C</button>
+
+
+<div class="project-buttons">
+   <a href="https://github.com/your-username/calculator" target="_blank">GitHub</a>
+   <a href="calculator.html" target="_blank">View Project</a>
+</div>
 
 </section>
 
