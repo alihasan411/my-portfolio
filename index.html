@@ -220,6 +220,11 @@ section {
   border-radius: 5px;
 }
 
+#modeBtn {
+  cursor: pointer;
+  font-size: 18px;
+}
+
 
 </style>
 
@@ -242,7 +247,7 @@ section {
   </div>
 
   <div class="nav-right">
-    <button onclick="darkMode()">🌙</button>
+   <button id="modeBtn" onclick="darkMode()">🌙</button>
   </div>
 
    <a     href="https://alihasan411.github.io/my-portfolio1/" target="_blank">
@@ -370,12 +375,17 @@ function sendMsg(){
 
 
 
-
 function darkMode(){
-    document.body.classList.toggle("dark");
+  document.body.classList.toggle("dark");
+
+  let btn = document.getElementById("modeBtn");
+
+  if(document.body.classList.contains("dark")){
+    btn.innerHTML = "☀️";
+  } else {
+    btn.innerHTML = "🌙";
+  }
 }
-
-
 
 
 </script>
