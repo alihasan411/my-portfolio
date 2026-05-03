@@ -12,13 +12,19 @@
 </nav>
 
 <section>
-    <h2>Welcome</h2>
-    <p>Hi I am a teacher but I really love web development and want to grow in this field.</p>
+  <div class="container">
 
-    <img src="IMG-20260502-WA0003.jpg" width="150">
+    <div class="left">
+      <h2>Welcome</h2>
+      <p>Hi I am a teacher but I really love web development...</p>
+    </div>
+
+    <div class="right">
+      <img src="IMG-20260502-WA0003.jpg">
+    </div>
+
+  </div>
 </section>
-
-<section>
     <h2>My Skills</h2>
     <ul>
         <li>Teaching</li>
@@ -36,6 +42,7 @@
     </ol>
 </section>
 
+
 <section>
     <h2>Contact Me</h2>
     <input type="text" placeholder="Your Name">
@@ -44,12 +51,12 @@
     <button>Send</button>
 </section>
  
+
+
      <p>Hy I am a teacher but i really love webdevlopment so i reaaly wants to develop intrest for this</p>
      <a href="https://google.com">Link for Google</a>
 
-<img src="IMG-20260502-WA0003.jpg" width="120">
-
- <ul>
+<img src="IMG-20260502-WA0003.jpg" width="120>
     <li>html</li>
     <li>CSS</li>
     <li>Java Script</li>
@@ -150,10 +157,13 @@ nav a {
         transform: scale (1.1);
         transition: (0.3s);
       }
-      .container{
-       display: flex;
-        gap:10px;
-      }
+   .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
       @media(min-width:600px){
         .box{
           flex: 1 1 30%;
@@ -377,7 +387,16 @@ nav a {
 
 img {
   border-radius: 50%;
-  width: 120px;
+  width: 200px;
+}
+
+
+.left {
+  width: 50%;
+}
+
+.right {
+  width: 40%;
 }
 
 body {
@@ -426,6 +445,10 @@ img {
  width: 200px;
   padding: 20px;
   background-color: lightblue;
+}
+
+section {
+  margin: 40px 0;
 }
 </style>
   </head>
