@@ -383,13 +383,6 @@ transition:0.3s;
 
 
 
-.calculator { width: 260px; margin: 40px auto; padding: 20px; border-radius: 15px; background: #1e1e1e; box-shadow: 0 0 20px rgba(0,0,0,0.5); text-align: center; }
-#display { width: 100%; padding: 12px; font-size: 20px; border: none; border-radius: 10px; margin-bottom: 15px; text-align: right; }
-.buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-.buttons button { padding: 15px; font-size: 18px; border: none; border-radius: 10px; background: #333; color: white; cursor: pointer; transition: 0.2s; }
-.buttons button:hover { background: cyan; color: black; }
-.clear { grid-column: span 4; background: red; }
-
 
 
 .contact { text-align: center; padding: 30px; background: #222; }
@@ -522,16 +515,18 @@ React
   <div class="projects-container">
 
 
-
-<div class="project">
+ <div class="project-card">
+      <img src="project1.png" alt="Project 1">
+      
   <h3>Calculator</h3>
-  <p>
-Calculator App
-A responsive calculator built using HTML, CSS & JavaScript with error handling.
-</p>
-  <a href="#">Live Demo</a>
-  <a href="#">GitHub Code</a>
-</div>
+  <p>A simple calculator using JavaScript.</p>
+
+     
+
+   <a href="calculator.html" target="_blank">Live Demo</a>
+
+ href="https://github.com/yourusername/project" target="_blank">GitHub</a>
+    </div>
 
 
 
@@ -555,27 +550,6 @@ A responsive calculator built using HTML, CSS & JavaScript with error handling.
   </div>
 </section>
 
-<section class="calculator">
-
-
-<button onclick="press('4')">4</button>
-<button onclick="press('5')">5</button>
-<button onclick="press('6')">6</button>
-<button onclick="press('*')">*</button>
-
-<button onclick="press('1')">1</button>
-<button onclick="press('2')">2</button>
-<button onclick="press('3')">3</button>
-<button onclick="press('-')">-</button>
-
-<button onclick="press('0')">0</button>
-<button onclick="press('.')">.</button>
-<button onclick="calculate()">=</button>
-<button onclick="press('+')">+</button>
-
-<button onclick="clearDisplay()" class="clear">C</button>
-
-</section>
 
 
 
@@ -635,14 +609,6 @@ function toggleMode() {
 
 
 
-
-let display = document.getElementById("display");
-function press(val) { display.value += val; }
-function calculate() { display.value = eval(display.value); }
-function clearDisplay() { display.value = ""; }
-
-
-function calculate() { try { display.value = eval(display.value); } catch { display.value = "Error"; } }
 
 
 
