@@ -302,7 +302,7 @@ box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 
 .hero {
   height: 90vh;
- 
+ margin-bottom: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -415,16 +415,11 @@ transition:0.3s;
 <body>
 
 <section class="hero">
-  <h1>
-Ali Hasan
-Front-End Developer
-I build modern, responsive and fast websites using HTML, CSS & JavaScript. View My Work Hire Me</h1>
-
-  <p>Frontend Developer | HTML, CSS, JavaScript</p>
+<h1>Ali Hasan</h1>
+<p>Front-End Developer</p>
+<p>I build modern responsive websites using HTML, CSS & JavaScript.</p>
 
 <a href="#projects" class="btn">View My Work</a>
-
-<br><br>
 
 <button onclick="toggleMode()">Toggle Mode</button>
 
@@ -444,8 +439,9 @@ I build modern, responsive and fast websites using HTML, CSS & JavaScript. View 
   </div>
 
    <a     href="https://alihasan411.github.io/my-portfolio1/" target="_blank">
-    <button>View Project</button>
+    
    </a>
+<button>View Project</button>
 
 </nav>
 
@@ -478,9 +474,10 @@ I build modern, responsive and fast websites using HTML, CSS & JavaScript. View 
     <h3>My Portfolio Website</h3>
     <p>This is my first website built using HTML, CSS, JS</p>
 
-<a href="https://github.com/alihasan411/my-portfolio" target="_blank">GitHub</a>
-
- <button>View Project</button>
+<a href="https://github.com/alihasan411/my-portfolio" target="_blank">
+  <button>View Project</button>
+</a>
+ 
   
 
   </div>
@@ -501,16 +498,9 @@ I build modern, responsive and fast websites using HTML, CSS & JavaScript. View 
 
 
 <section>
-    <h2>
-Contact Me
-
-
-Email: alihasan@example.com
-WhatsApp: 0300-1234567
-
-GitHub LinkedIn 
-</h2>
-
+ <h2>Contact Me</h2>
+<p>Email: alihasan@example.com</p>
+<p>WhatsApp: 0300-1234567</p>
 
    <input type="text" id="name" placeholder="Your Name">
 <input type="email" id="email" placeholder="Your Email">
@@ -522,42 +512,24 @@ GitHub LinkedIn
 <section id="projects">
   <h2>My Projects</h2>
 
+  <div class="project-card">
+    <img src="project.png" alt="Project Image">
 
-My Skills
-HTML
-CSS
-JavaScript
-React
+    <h3>Calculator</h3>
+    <p>A simple calculator using JavaScript.</p>
 
-  <div class="projects-container">
+    <a href="https://alihasan411.github.io/calculator" target="_blank" class="btn">
+      Live Demo
+    </a>
 
-<div class="project-card">
-  <img src="https://alihasan411.github.io/images/project.png" alt="Project Image">
-
-  <h3>Calculator</h3>
-  <p>A simple calculator using JavaScript.</p>
-
-  <div class="buttons">
-  <a href="https://alihasan411.github.io/calculator" target="_blank" class="btn">Live Demo</a>
-  <a href="https://github.com/alihasan411/calculator" target="_blank" class="btn btn-outline">View Code</a>
-</div>
-   
+    <a href="https://github.com/alihasan411/calculator" target="_blank" class="btn">
+      View Code
+    </a>
+  </div>
 </section>
 
 
 
-
-<section id="home">
-    <h2>Welcome</h2>
-</section>
-
-<section id="projects">
-    <h2>My Projects</h2>
-</section>
-
-<section id="contact">
-    <h2>Contact Me</h2>
-</section>
 
 
 
