@@ -31,11 +31,14 @@ background-repeat: no-repeat;
 
 section {
   padding: 40px 20px;
+margin:40px0;
 }
 
 h2 {
   text-align: center;
   margin-bottom: 20px;
+font-size: 28px; 
+
 }
 
 
@@ -200,6 +203,11 @@ body.dark section {
 }
 
 
+.light .contact { background: #eee; }
+.light header { background: #ddd; }
+
+
+
 
 /* 📱 Mobile view */
 @media (max-width: 768px) {
@@ -331,7 +339,10 @@ box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   padding: 20px;
   margin: 10px;
   border-radius: 10px;
+transition:0.3s;
 }
+
+.project:hover { transform: scale(1.05); }
 
 
 .projects-container {
