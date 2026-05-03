@@ -6,10 +6,32 @@
 <title>My Portfolio</title>
 
 <style>
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 24px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #f0f2f5;
+    background: #020617;
+  color: white;
+}
+
+
+section {
+  padding: 40px 20px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 /* Header */
@@ -233,14 +255,48 @@ box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 
 .hero {
   height: 90vh;
-  background: linear-gradient(45deg, #2c3e50, #3498db);
-  color: white;
+ 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  padding: 60px 20px;
+  background: #0f172a;
+  color: white;
 }
 
+
+.hero h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #cbd5e1;
+}
+
+.btn {
+  padding: 10px 20px;
+  background: #22c55e;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.btn:hover {
+  background: #16a34a;
+}
+
+
+.project {
+  background: #1e293b;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+}
 
 </style>
 
@@ -250,7 +306,8 @@ box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 
 <section class="hero">
   <h1>Ali Hasan</h1>
-  <p>I am a Web Developer</p>
+  <p>Frontend Developer | HTML, CSS, JavaScript</p>
+  <a href="#projects" class="btn">View My Work</a>
 
   <button onclick="document.getElementById('projects').scrollIntoView()">
     View My Work
@@ -286,13 +343,12 @@ box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 </section>
 
 <section>
-    <h2>My Skills</h2>
-    <ul>
-       <li>Teaching</li>
-    <li>HTML</li>
-    <li>CSS</li>
-    <li>JavaScript</li>
-    </ul>
+  <h2>Skills</h2>
+  <ul>
+    <li>HTML (Advanced)</li>
+    <li>CSS (Flexbox, Grid)</li>
+    <li>JavaScript (Basics)</li>
+  </ul>
 </section>
 
  
@@ -334,25 +390,15 @@ box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 
 
 
-<section>
-    <h2>My Projects</h2>
+<section id="projects">
+  <h2>My Projects</h2>
 
-    <div class="container">
-        <div class="box">
-            <h3>Web Design</h3>
-            <p>Learn modern web design</p>
-        </div>
-
-        <div class="box">
-            <h3>JavaScript</h3>
-            <p>Make your site interactive</p>
-        </div>
-
-        <div class="box">
-            <h3>CSS</h3>
-            <p>Style your website</p>
-        </div>
-    </div>
+  <div class="project">
+    <h3>Portfolio Website</h3>
+    <p>Built using HTML & CSS. Fully responsive.</p>
+    <a href="#">Live Demo</a>
+    <a href="#">GitHub</a>
+  </div>
 
 </section>
 
