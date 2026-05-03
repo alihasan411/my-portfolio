@@ -70,9 +70,9 @@ button {
     border: none;
     border-radius: 5px;
 }
-
 button:hover {
     background: #2c3e50;
+    transform: scale(1.05);
 }
 
 /* Project Cards */
@@ -181,9 +181,9 @@ body.dark section {
 
 <section>
     <h2>Contact Me</h2>
-    <input type="text" placeholder="Your Name">
-    <input type="email" placeholder="Your Email">
-    <textarea placeholder="Message"></textarea>
+   <input type="text" id="name" placeholder="Your Name">
+<input type="email" id="email" placeholder="Your Email">
+<textarea id="msg" placeholder="Message"></textarea>
   <button onclick="sendMsg()">Send</button>
 </section>
 
@@ -226,15 +226,26 @@ body.dark section {
 
 
 <script>
-function sendMsg(){
-    let name = document.querySelector("input").value;
 
-    if(name === ""){
-        alert("Please enter your name");
+function sendMsg(){
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let msg = document.getElementById("msg").value;
+
+    if(name === "" || email === "" || msg === ""){
+        alert("Please fill all fields");
     } else {
         alert("Message sent successfully!");
+
+        // 🔥 form reset
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("msg").value = "";
     }
 }
+
+
+
 
 function darkMode(){
     document.body.classList.toggle("dark");
