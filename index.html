@@ -41,10 +41,10 @@
   <head>
     <title>My 2nd Day Practice Page </title>
   </head>
-  <h1>Welcome</h1>
-  <h2>My image</h2>
+<h2 id="home">Welcome</h2>
+  <h3>My image</h3>
 <img src="IMG-20260501-WA0030.jpg" width="120">
-   <h2>My skills</h2> 
+   <h3>My skills</h3> 
   <ul>
     <li>Teaching</li>
     <li>Learning Webdevelopment</li>
@@ -258,7 +258,7 @@ nav a {
     <h1>Welcome</h1>
     <p>This is my styled text</p>
     <h2>My Image</h2>
-    <img 
+    
   <img src="IMG-20260501-WA0030.jpg" width="120">
     <h2>My Skills</h2>
     <ul>
@@ -319,8 +319,10 @@ nav a {
     <title>This is my first mini challange </title>
     <style>
       .card-container{
-        display:flex;
-        gap: 10px;
+        display:flex
+       justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap
         }
        .card{
          background-color: lightblue;
@@ -376,7 +378,15 @@ h2 {
 img {
   border-radius: 50%;
 }
-    </style>
+
+    button {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+</style>
   </head>
 <body>
 
@@ -397,19 +407,19 @@ img {
   <div class="card-container">
     <div class="card">
    <img 
-   <img src="IMG-20260502-WA0030.jpg" alt="my image">
+  <img src="IMG-20260502-WA0030.jpg" width="120">
     <h3>Web Design</h3>
     <p>Learn modern web Design</p>
     <button>View</button>
       </div>
       <div class="card">
-      <img src="IMG-20260502-WA0030.jpg" alt="my image">
+      <img src="IMG-20260502-WA0030.jpg" width="120">
         <h3>JavaScript</h3>
         <p>Make your site interactive</p>
         <button>View</button>
       </div>
       <div class="card">
-    <img src="IMG-20260502-WA0030.jpg" alt="my image">
+   <img src="IMG-20260502-WA0030.jpg" width="120">
         <h3>CSS</h3>
         <p>style your website</p>
        </div>
