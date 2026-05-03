@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Calculator</title>
+    <style>
+      
+.calculator { width: 260px; margin: 40px auto; padding: 20px; border-radius: 15px; background: #1e1e1e; box-shadow: 0 0 20px rgba(0,0,0,0.5); text-align: center; }
+#display { width: 100%; padding: 12px; font-size: 20px; border: none; border-radius: 10px; margin-bottom: 15px; text-align: right; }
+.buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.buttons button { padding: 15px; font-size: 18px; border: none; border-radius: 10px; background: #333; color: white; cursor: pointer; transition: 0.2s; }
+.buttons button:hover { background: cyan; color: black; }
+.clear { grid-column: span 4; background: red; }
+
+    </style>
+    </head>
+    
+    <body>
+      
+<section class="calculator">
+
+
+<button onclick="press('4')">4</button>
+<button onclick="press('5')">5</button>
+<button onclick="press('6')">6</button>
+<button onclick="press('*')">*</button>
+
+<button onclick="press('1')">1</button>
+<button onclick="press('2')">2</button>
+<button onclick="press('3')">3</button>
+<button onclick="press('-')">-</button>
+
+<button onclick="press('0')">0</button>
+<button onclick="press('.')">.</button>
+<button onclick="calculate()">=</button>
+<button onclick="press('+')">+</button>
+
+<button onclick="clearDisplay()" class="clear">C</button>
+
+</section>
+
+<script>
+  
+let display = document.getElementById("display");
+function press(val) { display.value += val; }
+function calculate() { display.value = eval(display.value); }
+function clearDisplay() { display.value = ""; }
+
+
+function calculate() { try { display.value = eval(display.value); } catch { display.value = "Error"; } }
+
+  
+</script>
+    </body>
+  
+</html>
