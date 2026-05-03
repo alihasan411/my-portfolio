@@ -199,12 +199,16 @@ nav a {
       }*/
       .container{
         display: flex;
+        width:90%;
+        margin:auto;
         flex-wrap: wrap;*/
         gap:15px;
         align-items: center;
       }
       .container{
         display:grid;
+        justify-content: center;
+        gap: 20px;
         grid-template-columns: repeat(2, 1fr);
         gap:20px;
        /* display: flex;
@@ -379,6 +383,7 @@ img {
 body {
   font-family: Arial;
   margin: 0;
+  text-align: center;
 }
 
 header {
@@ -414,6 +419,13 @@ img {
   border: none;
   padding: 8px;
   border-radius: 5px;
+}
+
+.box{
+
+ width: 200px;
+  padding: 20px;
+  background-color: lightblue;
 }
 </style>
   </head>
@@ -453,5 +465,11 @@ img {
         <p>style your website</p>
        </div>
     </div>
+
+<div class="container">
+  <div class="box">Box 1</div>
+  <div class="box">Box 2</div>
+  <div class="box">Box 3</div>
+</div>
 </body>
 </html>
