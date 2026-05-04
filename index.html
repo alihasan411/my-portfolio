@@ -458,6 +458,12 @@ ul li {
 }
 
 
+#typing {
+  color: #00e0c6;
+  font-weight: bold;
+}
+
+
 </style>
 
 </head>
@@ -465,7 +471,7 @@ ul li {
 <body>
 
 <section class="hero">
-<h1>Ali Hasan</h1>
+<h1>Hi, I'm <span id="typing"></span></h1>
 <p>Front-End Developer</p>
 <p>I build modern responsive websites using HTML, CSS & JavaScript.</p>
 
@@ -625,6 +631,37 @@ function toggleMode() {
   document.body.classList.toggle("dark-mode");
 }
 
+
+
+
+
+const text = ["Ali Hasan", "Web Developer", "Frontend Learner"];
+let index = 0;
+let charIndex = 0;
+
+function typeEffect() {
+  if (charIndex < text[index].length) {
+    document.getElementById("typing").textContent += text[index].charAt(charIndex);
+    charIndex++;
+    setTimeout(typeEffect, 100);
+  } else {
+    setTimeout(eraseEffect, 1500);
+  }
+}
+
+function eraseEffect() {
+  if (charIndex > 0) {
+    let currentText = text[index].substring(0, charIndex - 1);
+    document.getElementById("typing").textContent = currentText;
+    charIndex--;
+    setTimeout(eraseEffect, 50);
+  } else {
+    index = (index + 1) % text.length;
+    setTimeout(typeEffect, 500);
+  }
+}
+
+typeEffect();
 
 
 
