@@ -493,6 +493,34 @@ ul li {
 }
 
 
+.timeline {
+  margin-top: 20px;
+  padding-left: 20px;
+  border-left: 3px solid #00d4ff;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+.dot {
+  position: absolute;
+  left: -10px;
+  top: 5px;
+  width: 15px;
+  height: 15px;
+  background: #00d4ff;
+  border-radius: 50%;
+}
+
+.timeline-item p {
+  margin: 0;
+  font-size: 16px;
+}
+
+
 
 </style>
 
@@ -595,10 +623,21 @@ ul li {
 <section id="routine">
   <h2>My Daily Routine</h2>
 
-  <div class="routine-container">
-    <div class="routine-card">🌅 Wakeup</div>
-    <div class="routine-card">👨‍🏫 Teach Students</div>
-    <div class="routine-card">💻 Learn Coding</div>
+  <div class="timeline">
+    <div class="timeline-item">
+      <span class="dot"></span>
+      <p>🌅 Wakeup</p>
+    </div>
+
+    <div class="timeline-item">
+      <span class="dot"></span>
+      <p>👨‍🏫 Teach Students</p>
+    </div>
+
+    <div class="timeline-item">
+      <span class="dot"></span>
+      <p>💻 Learn Coding</p>
+    </div>
   </div>
 </section>
 
