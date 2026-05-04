@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>To-Do List</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #0f172a;
+      color: white;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 20px;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: auto;
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    input {
+      width: 70%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px;
+      border: none;
+      background: green;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    li {
+      list-style: none;
+      margin: 10px 0;
+      padding: 10px;
+      background: #334155;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .done {
+      text-decoration: line-through;
+      color: gray;
+    }
+
+    .delete {
+      background: red;
+      border: none;
+      color: white;
+      padding: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>My To-Do List</h1>
+
+<div class="container">
+  <input type="text" id="taskInput" placeholder="Enter task">
+  <button onclick="addTask()">Add</button>
+
+  <ul id="taskList"></ul>
+</div>
+
+<script>
+function addTask() {
+  let input = document.getElementById("taskInput");
+  let task = input.value;
+
+  if (task === "") {
+    alert("Please enter a task");
+    return;
+  }
+
+  let li = document.createElement("li");
+  li.innerHTML = task;
+
+  li.onclick = function () {
+    li.classList.toggle("done");
+  };
+
+  let delBtn = document.createElement("button");
+  delBtn.innerHTML = "X";
+  delBtn.className = "delete";
+
+  delBtn.onclick = function () {
+    li.remove();
+  };
+
+  li.appendChild(delBtn);
+
+  document.getElementById("taskList").appendChild(li);
+
+  input.value = "";
+}
+</script>
+
+</body>
+</html>
