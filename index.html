@@ -352,7 +352,7 @@ margin: 25px;
 
 
 .btn:hover {
-  background: #00bfa6;
+   background: #16a34a;
 opacity: 0.8;
 transform: scale(1.05);
 box-shadow: 0 0 10px #00e0c6;
@@ -361,10 +361,11 @@ box-shadow: 0 0 10px #00e0c6;
 
 .project {
   background: #1e293b;
-  padding: 20px;
+  padding: 30px;
   margin: 10px;
   border-radius: 10px;
 transition:0.3s;
+text-align: center;
 }
 
 .project:hover { transform: scale(1.05); }
@@ -374,10 +375,12 @@ transition:0.3s;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+ gap: 20px;
 }
 
 .project-card {
   background: #1e293b;
+color: white;
   margin: auto;
   padding: 20px;
   border-radius: 12px;
@@ -397,7 +400,7 @@ overflow: hidden;
   width: 100%;
 height: 200px;
   border-radius: 10px;
- margin-bottom: 12px;
+ margin-bottom: 10px;
 height: 180px;
   object-fit: cover;
 
@@ -405,7 +408,7 @@ background: #000;
 }
 
 .project-card:hover {
-  transform: translateY(-8px);
+  transform: scale(1.05);
 }
 
 .project-card a {
@@ -420,10 +423,10 @@ background: #000;
 
 text-decoration: none;
   display: inline-block;
-  padding: 10px 20px;
+  padding: 8px 12px;
   border-radius: 8px;
-  background: #00e0c6;
-  color: black;
+ background: #22c55e;
+  color: white;
   font-weight: bold;
 
  transition: 0.3s;
@@ -696,35 +699,26 @@ ul li {
  <section id="projects">
   <h2>My Projects</h2>
 
-  <div class="box">
-    <h3>My Portfolio Website</h3>
-    <p>This is my first website built using HTML, CSS, JS</p>
+   <div class="projects-container">
 
-<a href="https://github.com/alihasan411/my-portfolio" target="_blank">
-  <button>View Project</button>
-</a>
- 
-  
+    <div class="project-card">
+      <h3>My Portfolio Website</h3>
+      <p>This is my first website built using HTML, CSS, JS</p>
+
+      <a href="https://github.com/alihasan411/my-portfolio" target="_blank" class="btn">View Code</a>
+    </div>
+
+    <div class="project-card">
+      <h3>To-Do List</h3>
+      <p>Manage daily tasks using JavaScript</p>
+
+      <a href="https://alihasan411.github.io/todo" target="_blank" class="btn">Live Demo</a>
+      <a href="https://github.com/alihasan411/todo" target="_blank" class="btn">View Code</a>
+    </div>
 
   </div>
 
 
-
-<div class="project-card">
-  <h3>To-Do List</h3>
-  <p>Manage daily tasks using JavaScript</p>
-
-  <a href="https://alihasan411.github.io/todo" target="_blank" class="btn">Live Demo</a>
-  <a href="https://github.com/alihasan411/todo" target="_blank" class="btn">View Code</a>
-</div>
-
-
-</section>
-
-
-
-<section id="projects">
- 
 
   <div class="project-card">
         <img src="IMG-20260502-WA0003.jpg">
@@ -740,7 +734,6 @@ ul li {
       View Code
     </a>
   </div>
-</section>
 
 
 <section id="routine">
