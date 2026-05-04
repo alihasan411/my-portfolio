@@ -2,86 +2,86 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Weather App</title>
 
 <style>
 body{
-  font-family: Arial;
-  background: linear-gradient(135deg,#1e293b,#0f172a);
-  color:white;
-  text-align:center;
-  padding:40px;
+    font-family: Arial;
+    background: linear-gradient(135deg,#1e293b,#0f172a);
+    color: white;
+    text-align: center;
+    padding: 40px;
 }
 
 .container{
-  max-width:350px;
-  margin:auto;
-  background:#1e293b;
-  padding:25px;
-  border-radius:15px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.3);
+    background: #1e293b;
+    padding: 30px;
+    border-radius: 15px;
+    width: 300px;
+    margin: auto;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
 input{
-  width:80%;
-  padding:10px;
-  border:none;
-  border-radius:8px;
-  margin-bottom:10px;
+    width: 80%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 10px;
 }
 
 button{
-  padding:10px 20px;
-  border:none;
-  border-radius:8px;
-  background:#22c55e;
-  color:white;
-  cursor:pointer;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #22c55e;
+    color: white;
+    cursor: pointer;
 }
 
-.weather-box{
-  margin-top:20px;
+button:hover{
+    background: #16a34a;
 }
 
+.weather{
+    margin-top: 20px;
+}
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
-  <h2>🌦️ Weather App</h2>
+    <h2>🌦️ Weather App</h2>
 
-  <input type="text" id="city" placeholder="Enter city">
-  <br>
-  <button onclick="getWeather()">Search</button>
+    <input type="text" id="city" placeholder="Enter city name">
+    <br>
+    <button onclick="getWeather()">Check Weather</button>
 
-  <div class="weather-box" id="result"></div>
+    <div class="weather" id="result"></div>
 </div>
 
 <script>
-
 async function getWeather(){
-  let city = document.getElementById("city").value;
+    let city = document.getElementById("city").value;
 
-  let apiKey = "9cdaf047877e150d04a5a44be83565c5"; // 👈 yahan apni API key dalni hai
+    let apiKey = "YOUR_API_KEY"; // yahan apni API key lagani hai
 
-  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
-  let response = await fetch(url);
-  let data = await response.json();
+    let response = await fetch(url);
+    let data = await response.json();
 
-  if(data.cod == 200){
-    document.getElementById("result").innerHTML = `
-      <h3>${data.name}</h3>
-      <p>🌡️ Temp: ${data.main.temp} °C</p>
-      <p>☁️ ${data.weather[0].main}</p>
-    `;
-  }else{
-    document.getElementById("result").innerHTML = "City not found ❌";
-  }
+    if(data.cod == 200){
+        document.getElementById("result").innerHTML =
+        `<h3>${data.name}</h3>
+        <p>🌡️ Temp: ${data.main.temp}°C</p>
+        <p>☁️ ${data.weather[0].main}</p>`;
+    } else {
+        document.getElementById("result").innerHTML = "City not found ❌";
+    }
 }
-
 </script>
 
 </body>
