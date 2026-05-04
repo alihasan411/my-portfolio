@@ -369,14 +369,17 @@ flex-direction: column;
   gap: 20px;
   justify-content: center;
 }
- .project-card {
-  background: #1e293b;  /* ✅ same dark blue */
-  color: white;
+.project-card {
+  background: #1e2a3a;
   border-radius: 15px;
-  padding: 15px;
- margin-bottom: 20px;
- margin: 20px auto;
- width: 90%;
+  padding: 20px;
+  text-align: center;
+
+  /* FIX */
+  height: 450px;   /* sab cards same height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .project-card:hover {
@@ -394,19 +397,14 @@ flex-direction: column;
 
 .project-card img {
   width: 100%;
-height: 200px;
-  border-radius: 12px;
- margin-bottom: 10px;
-height: 180px;
-  object-fit: cover;
-
-background: lightblu;
+  height: 200px;   /* FIX image size */
+  object-fit: cover; /* image stretch na ho */
+  border-radius: 10px;
 }
-
 .project-card:hover {
-  transform: scale(1.05);
+  transform: translateY(-5px);
+  transition: 0.3s;
 }
-
 .project-card a {
   display: inline-block;
   margin: 8px;
@@ -502,22 +500,26 @@ ul li {
   padding-left: 20px;
   border-left: 3px solid #00d4ff;
 width: 90%;
-  max-width: 400px;
-  margin: 0 auto;
+  max-width: 600px;
+  margin:  auto;
+position: relative;
 }
 
 .timeline-item {
   position: relative;
   margin-bottom: 20px;
   padding-left: 20px;
+display: flex;
+  align-items: center;
+  margin: 20px 0;
 }
 
-.dot {
+timeline-dot {
   position: absolute;
   left: -10px;
   top: 5px;
-  width: 15px;
-  height: 15px;
+  width: 12px;
+  height: 12px;
   background: #00d4ff;
   border-radius: 50%;
 }
@@ -529,6 +531,12 @@ width: 90%;
 
 
 
+.timeline-content {
+  background: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+  width: 100%;
+}
 
 
 .skills-container {
