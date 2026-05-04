@@ -568,6 +568,56 @@ ul li {
 
 
 
+.contact-container {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.contact-card {
+  flex: 1;
+  background: #1e293b;
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.contact-card p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.contact-card span {
+  font-size: 14px;
+}
+
+/* form styling */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+.contact-form button {
+  background: #00d4ff;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+
 
 </style>
 
@@ -704,17 +754,32 @@ ul li {
 </section>
 
 
-<section>
- <h2>Contact Me</h2>
-<p>Email: alihasan@example.com</p>
-<p>WhatsApp: 0300-1234567</p>
 
-   <input type="text" id="name" placeholder="Your Name">
-<input type="email" id="email" placeholder="Your Email">
-<textarea id="msg" placeholder="Message"></textarea>
-  <button onclick="sendMsg()">Send</button>
+<section id="contact">
+  <h2>Contact Me</h2>
+
+  <div class="contact-container">
+
+    <div class="contact-card">
+      <p>📧 Email</p>
+      <span>alihasan@example.com</span>
+    </div>
+
+    <div class="contact-card">
+      <p>📱 WhatsApp</p>
+      <span>0300-1234567</span>
+    </div>
+
+  </div>
+
+  <form class="contact-form">
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea placeholder="Your Message"></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+
 </section>
-
 
 
 
