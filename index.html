@@ -6,8 +6,6 @@
 <title>My Portfolio</title>
 
 <style>
-
-/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -15,99 +13,75 @@
   font-family: Arial, sans-serif;
 }
 
-/* BODY */
 body {
-  background: #f4f6f9;
+  background: #f5f5f5;
+}
+
+/* NAVBAR */
+nav {
+  background: #fff;
+  padding: 10px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
   color: #333;
+  font-weight: bold;
 }
 
-/* CONTAINER */
-.container {
-  width: 90%;
-  max-width: 1100px;
-  margin: auto;
-}
-
-/* HERO SECTION */
+/* HERO */
 .hero {
-  background: #0f1c2e;
+  background: #0f1f3d;
   color: white;
   text-align: center;
   padding: 60px 20px;
 }
 
 .hero h1 {
-  font-size: 32px;
+  font-size: 28px;
 }
 
 .hero span {
-  color: #00d4aa;
+  color: #00e0b8;
 }
 
 .hero p {
   margin: 15px 0;
-  font-size: 16px;
 }
 
 .btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background: #00d4aa;
+  background: #00e0b8;
   color: white;
+  padding: 10px 20px;
   border-radius: 8px;
   text-decoration: none;
-  transition: 0.3s;
+  display: inline-block;
 }
 
-.btn:hover {
-  background: #00b894;
+/* SECTIONS */
+section {
+  padding: 30px 15px;
 }
 
-/* PROJECTS */
-.projects {
-  padding: 40px 0;
-}
-
-.projects h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-/* GRID FIX */
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-/* CARD FIX */
+/* PROJECT CARDS */
 .project-card {
-  background: #1e2a3a;
+  background: #1c2b45;
   color: white;
   border-radius: 15px;
+  margin-bottom: 20px;
   padding: 15px;
-
-  height: 420px; /* IMPORTANT FIX */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  transition: 0.3s;
 }
 
-.project-card:hover {
-  transform: translateY(-5px);
-}
-
-/* IMAGE FIX */
 .project-card img {
   width: 100%;
-  height: 180px; /* SAME SIZE */
-  object-fit: cover;
   border-radius: 10px;
+  height: auto;
 }
 
-/* CARD TEXT */
 .project-card h3 {
   margin: 10px 0;
 }
@@ -116,118 +90,52 @@ body {
   font-size: 14px;
 }
 
-/* BUTTONS */
-.project-buttons {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
+.buttons {
+  margin-top: 10px;
 }
 
-.project-buttons a {
-  flex: 1;
+.buttons a {
+  display: block;
+  margin: 8px 0;
+  background: #00e0b8;
+  padding: 10px;
   text-align: center;
-  padding: 8px;
-  background: #00d4aa;
-  color: white;
   border-radius: 8px;
+  color: white;
   text-decoration: none;
-  font-size: 14px;
-}
-
-/* TIMELINE */
-.timeline {
-  max-width: 600px;
-  margin: auto;
-  padding: 40px 0;
-}
-
-.timeline h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.timeline-item {
-  display: flex;
-  align-items: center;
-  margin: 15px 0;
-}
-
-.timeline-dot {
-  width: 12px;
-  height: 12px;
-  background: #00d4aa;
-  border-radius: 50%;
-  margin-right: 15px;
-}
-
-.timeline-content {
-  background: white;
-  padding: 10px 15px;
-  border-radius: 10px;
-  width: 100%;
 }
 
 /* CONTACT */
-.contact {
-  padding: 40px 0;
-}
-
-.contact h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
 .contact-box {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.contact-card {
-  background: #1e2a3a;
+  background: #1c2b45;
   color: white;
   padding: 15px;
-  border-radius: 10px;
-  width: 250px;
-  text-align: center;
+  border-radius: 12px;
+  margin-bottom: 10px;
 }
 
-/* FORM */
-form {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-form input,
-form textarea {
+input, textarea {
+  width: 100%;
   padding: 10px;
+  margin: 8px 0;
   border-radius: 8px;
   border: 1px solid #ccc;
 }
 
-form button {
-  background: #00d4aa;
-  color: white;
-  padding: 10px;
+button {
+  width: 100%;
+  padding: 12px;
+  background: #00e0b8;
   border: none;
+  color: white;
   border-radius: 8px;
 }
 
 /* MOBILE FIX */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 24px;
-  }
-
+@media (min-width: 768px) {
   .project-card {
-    height: auto; /* mobile pe flexible */
-  }
-
-  .project-buttons {
-    flex-direction: column;
+    max-width: 500px;
+    margin: 20px auto;
   }
 }
 
