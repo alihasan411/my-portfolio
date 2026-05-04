@@ -472,6 +472,28 @@ ul li {
 }
 
 
+.routine-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.routine-card {
+  background: #1e2a3a;
+  color: white;
+  padding: 12px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.routine-card:hover {
+  transform: translateX(10px);
+  background: #00e0c6;
+  color: black;
+}
+
+
+
 </style>
 
 </head>
@@ -570,16 +592,15 @@ ul li {
 </section>
 
 
+<section id="routine">
+  <h2>My Daily Routine</h2>
 
-<section>
-    <h2>My Daily Routine</h2>
-    <ol>
-        <li>Wakeup</li>
-        <li>Teach Students</li>
-        <li>Learn Coding</li>
-    </ol>
+  <div class="routine-container">
+    <div class="routine-card">🌅 Wakeup</div>
+    <div class="routine-card">👨‍🏫 Teach Students</div>
+    <div class="routine-card">💻 Learn Coding</div>
+  </div>
 </section>
-
 
 
 <section>
