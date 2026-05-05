@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ali Portfolio</title>
 
+
+
 <style>
 
 /* RESET */
@@ -345,6 +347,8 @@ body.dark-mode textarea{background:#e2e8f0;color:#111;}
 </style>
 </head>
 
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
 <body>
 
 <nav>
@@ -364,7 +368,7 @@ body.dark-mode textarea{background:#e2e8f0;color:#111;}
 
 <section id="projects" class="projects fade-in">
 
-<div class="project-card fade-in">
+<div class="project-card fade-in" data-aos="fade-up">
 <div class="img-box">
 <span class="tag">Planner App</span>
 <img src="IMG-20260502-WA0003.jpg">
@@ -374,7 +378,7 @@ body.dark-mode textarea{background:#e2e8f0;color:#111;}
 <p>Task management app with dark mode & storage</p>
 </div>
 
-<div class="project-card fade-in">
+<div class="project-card fade-in" data-aos="fade-up">
 <div class="img-box">
 <span class="tag">Quiz JS App</span>
 <img src="creatvise-qOA1-UjXxSc-unsplash.jpg">
@@ -384,7 +388,7 @@ body.dark-mode textarea{background:#e2e8f0;color:#111;}
 <p>Interactive quiz with score & progress bar</p>
 </div>
 
-<div class="project-card fade-in">
+<div class="project-card fade-in" data-aos="fade-up">
 <div class="img-box">
 <span class="tag">Task Manager</span>
 <img src="jonathan-borba-0Nrq6UvFpI8-unsplash.jpg">
@@ -394,7 +398,9 @@ body.dark-mode textarea{background:#e2e8f0;color:#111;}
 <p>Manage daily tasks</p>
 </div>
 
-<div class="project-card fade-in">
+
+
+<div class="project-card fade-in" data-aos="fade-up">
 <div class="img-box">
 <span class="tag">Calculator</span>
 <img src="cardmapr-nl-tvzykmBf3r0-unsplash.jpg">
@@ -404,7 +410,8 @@ body.dark-mode textarea{background:#e2e8f0;color:#111;}
 <p>Perform calculations</p>
 </div>
 
-<div class="project-card fade-in">
+
+<div class="project-card fade-in" data-aos="fade-up">
 <div class="img-box">
 <span class="tag">Weather App</span>
 <img src="raychan-cFiQbSH7-RY-unsplash.jpg">
@@ -414,7 +421,9 @@ body.dark-mode textarea{background:#e2e8f0;color:#111;}
 <p>Real-time weather</p>
 </div>
 
-<div class="project-card fade-in">
+
+
+<div class="project-card fade-in" data-aos="fade-up">
   <div class="img-box">
     <span class="tag">E-commerce</span>
 
@@ -447,6 +456,14 @@ body.dark-mode textarea{background:#e2e8f0;color:#111;}
 <button>Send Message</button>
 </form>
 </section>
+
+
+
+
+
+<script src="script.js"></script>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
 <script>
 
@@ -488,6 +505,16 @@ el.classList.add("show");
 /* START */
 typeName();
 typeRole();
+
+
+
+AOS.init({
+  duration: 1000,
+  once: true
+});
+
+
+
 
 </script>
 
