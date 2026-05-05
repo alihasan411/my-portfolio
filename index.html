@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ali Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ali Portfolio</title>
 
-  <style>
-  /* RESET */
+<style>
+
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -20,6 +21,13 @@ body {
   background-size: 400% 400%;
   animation: bgMove 10s ease infinite;
   color: white;
+  transition: 0.3s;
+}
+
+/* DARK MODE */
+body.dark-mode {
+  background: #ffffff;
+  color: black;
 }
 
 /* BG ANIMATION */
@@ -43,7 +51,7 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: white;
+  color: inherit;
   font-weight: 600;
   position: relative;
 }
@@ -76,16 +84,12 @@ nav a:hover::after {
   position: relative;
 }
 
-.hero-content {
-  text-align: center;
-}
-
-.hero h1 {
+.hero-content h1 {
   font-size: 32px;
   margin-bottom: 10px;
 }
 
-.hero h2 {
+.hero-content h2 {
   font-size: 20px;
   color: #00e5ff;
   height: 25px;
@@ -101,12 +105,11 @@ nav a:hover::after {
   text-decoration: none;
 }
 
-/* DARK MODE BUTTON */
+/* TOGGLE BUTTON FIX */
 #modeToggle {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 1000;
+  position: absolute;
+  top: 20px;
+  right: 20px;
   background: #00e5ff;
   border: none;
   padding: 10px;
@@ -114,13 +117,26 @@ nav a:hover::after {
   cursor: pointer;
 }
 
-/* PROJECTS */
+/* PROJECTS GRID FIX */
 .projects {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 25px;
   padding: 40px 20px;
+  justify-items: center;
+}
+
+/* DESKTOP GRID */
+@media (min-width: 768px) {
+  .projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .projects {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 /* CARD */
@@ -141,7 +157,7 @@ nav a:hover::after {
   box-shadow: 0 0 25px rgba(20,184,166,0.5);
 }
 
-/* IMAGE BOX */
+/* IMAGE */
 .img-box {
   position: relative;
   aspect-ratio: 16/9;
@@ -200,7 +216,6 @@ nav a:hover::after {
 #contact {
   padding: 60px 20px;
   text-align: center;
-  background: linear-gradient(135deg, #0f172a, #1e293b);
 }
 
 .contact-form {
@@ -221,21 +236,9 @@ nav a:hover::after {
   border: none;
   border-radius: 12px;
   outline: none;
-  background: rgba(255,255,255,0.08);
-  color: white;
 }
 
-.contact-form button {
-  padding: 14px;
-  border: none;
-  border-radius: 12px;
-  background: linear-gradient(45deg, #38bdf8, #0ea5e9);
-  color: black;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-/* FADE ANIMATION */
+/* ANIMATION FIX */
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
@@ -247,29 +250,10 @@ nav a:hover::after {
   transform: translateY(0);
 }
 
-/* RESPONSIVE */
-@media (min-width: 768px) {
-  .hero h1 {
-    font-size: 40px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .hero h1 {
-    font-size: 50px;
-  }
-}
-  </style>
+</style>
 </head>
 
 <body>
-
-
-
-
-
-<!-- NAV -->
-
 
 <nav>
   <a href="#hero">Home</a>
@@ -277,281 +261,107 @@ nav a:hover::after {
   <a href="#contact">Contact</a>
 </nav>
 
-
-<!-- HERO -->
-<section class="hero">
-
+<section class="hero" id="hero">
 
 <button id="modeToggle">🌙</button>
-  <div class="hero-content">
-    <h1>Hi, I'm Ali 👋</h1>
-   <h2 id="typing">Frontend Developer</h2>
-    <a href="#projects" class="btn">View My Work</a>
-  </div>
+
+<div class="hero-content">
+  <h1>Hi, I'm Ali 👋</h1>
+  <h2 id="typing"></h2>
+  <a href="#projects" class="btn">View My Work</a>
+</div>
+
 </section>
 
-
-
-<!-- PROJECTS -->
 <section id="projects" class="projects fade-in">
 
-  <div class="project-card fade-in">
+<!-- CARD -->
+<div class="project-card fade-in">
   <div class="img-box">
-<span class="tag">Planner App</span>
+    <span class="tag">Planner</span>
     <img src="IMG-20260502-WA0003.jpg">
     <div class="overlay">
       <a href="smart-daily-planner.html" target="_blank">Live Demo</a>
     </div>
   </div>
-
   <h3>Smart Daily Planner</h3>
-  <p>Task management app with dark mode & storage</p>
 </div>
-
-
 
 <div class="project-card fade-in">
   <div class="img-box">
-    <span class="tag">Quiz JS App</span>
-    
+    <span class="tag">Quiz</span>
     <img src="creatvise-qOA1-UjXxSc-unsplash.jpg">
-
     <div class="overlay">
       <a href="smart-quiz-app.html" target="_blank">Live Demo</a>
     </div>
   </div>
-
-  <h3>Smart Quiz App</h3>
-  <p>Interactive quiz with score & progress bar</p>
+  <h3>Quiz App</h3>
 </div>
-
-
-<div class="project-card fade-in">
-  <div class="img-box">
-      <img src="jonathan-borba-0Nrq6UvFpI8-unsplash.jpg">
-
-    <span class="tag">Task Manager</span>
-
-    <div class="overlay">
-      <a href="todo-app.html" target="_blank">Live Demo</a>
-    </div>
-  </div>
-
-  <h3>Todo App</h3>
-  <p>Manage daily tasks with add, delete & complete features</p>
-</div>
-
-
-
- 
-
-<div class="project-card fade-in">
-  <div class="img-box">
-    <img src="cardmapr-nl-tvzykmBf3r0-unsplash.jpg">
-
-    <span class="tag">Calculator</span>
-
-    <div class="overlay">
-      <a href="calculator.html" target="_blank">Live Demo</a>
-    </div>
-  </div>
-
-  <h3>Smart Calculator</h3>
-  <p>Perform basic calculations with clean UI design</p>
-</div>
-
-
- 
-
-<div class="project-card fade-in">
-  <div class="img-box">
-    <img src="raychan-cFiQbSH7-RY-unsplash.jpg">
-
-    <span class="tag">Weather App</span>
-
-    <div class="overlay">
-      <a href="weather-app.html" target="_blank">Live Demo</a>
-    </div>
-  </div>
-
-  <h3>Weather App</h3>
-  <p>Check real-time weather using API integration</p>
-</div>
-
-
 
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="contact fade-in">
+<section id="contact" class="fade-in">
 
-  <h2>Contact Me</h2>
+<h2>Contact Me</h2>
 
-  <div class="contact">
-    <p>Email: <a href="mailto:alihassanayesha752@gmail.com">alihassanayesha752@gmail.com</a></p>
-    <p>📞 +92 300 1234567</p>
-  </div>
-
-  <!-- SIRF YE EK FORM HO 👇 -->
-  <form class="contact-form">
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Your Email" required>
-    <textarea placeholder="Your Message"></textarea>
-    <button type="submit">Send Message</button>
-  </form>
+<form class="contact-form">
+  <input type="text" placeholder="Your Name" required>
+  <input type="email" placeholder="Your Email" required>
+  <textarea placeholder="Your Message"></textarea>
+  <button type="submit">Send Message</button>
+</form>
 
 </section>
 
 <script>
 
-
-
+/* FADE */
 const elements = document.querySelectorAll('.fade-in');
 
 window.addEventListener('scroll', () => {
   elements.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-
-    if (top < window.innerHeight - 100) {
+    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
       el.classList.add('show');
     }
   });
 });
 
+/* TYPING FIX */
+const textArray = ["Frontend Developer", "Web Designer", "Creative Coder"];
+let i = 0, j = 0, current = "", deleting = false;
 
+function type() {
+  current = textArray[i];
 
-
-
-const textArray = [
-  "Frontend Developer",
-  "Web Designer",
-  "Creative Coder"
-];
-
-let index = 0;
-let charIndex = 0;
-let currentText = "";
-let isDeleting = false;
-
-function typeEffect() {
-  const typing = document.getElementById("typing");
-
-  if (index >= textArray.length) index = 0;
-
-  currentText = textArray[index];
-
-  if (!isDeleting) {
-    typing.textContent = currentText.substring(0, charIndex++);
-    if (charIndex > currentText.length) {
-      isDeleting = true;
-      setTimeout(typeEffect, 1000);
+  if (!deleting) {
+    document.getElementById("typing").textContent = current.slice(0, j++);
+    if (j > current.length) {
+      deleting = true;
+      setTimeout(type, 1000);
       return;
     }
   } else {
-    typing.textContent = currentText.substring(0, charIndex--);
-    if (charIndex === 0) {
-      isDeleting = false;
-      index++;
+    document.getElementById("typing").textContent = current.slice(0, j--);
+    if (j === 0) {
+      deleting = false;
+      i = (i + 1) % textArray.length;
     }
   }
 
-  setTimeout(typeEffect, isDeleting ? 50 : 100);
+  setTimeout(type, deleting ? 50 : 100);
 }
+type();
 
-typeEffect();
+/* TOGGLE FIX */
+const toggleBtn = document.getElementById("modeToggle");
 
-
-
-
-
-function goProjects() {
-  document.querySelector(".projects").scrollIntoView({
-    behavior: "smooth"
-  });
-}
-
-
-
-function openGit() {
-  window.open("https://github.com/", "_blank");
-}
-
-function openLive() {
-  window.open("https://example.com", "_blank");
-}
-
-
-
-function sendMsg() {
-  alert("Message sent (demo)");
-}
-
-
-
-function openSmartdailyplanner() {
-  window.open("smart-daily-planner.html", "_blank");
-}
-
-
-
-function openSmartquizapp() {
-  window.open("smart-quiz-app.html", "_blank");
-}
-
-
-
-function openTodo() {
-  window.open("todo.html", "_blank");
-}
-
-
-function openCalc() {
-  window.open("calculator.html", "_blank");
-}
-
-
-
-
-function openWeather() {
-  window.open("weather.html", "_blank");
-}
-
-
-function goProjects() {
-  document.querySelector("#projects").scrollIntoView({
-    behavior: "smooth"
-  });
-}
-
-function goContact() {
-  document.querySelector("#contact").scrollIntoView({
-    behavior: "smooth"
-  });
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".fade-in").forEach(el => {
-    el.classList.add("show");
-  });
-});
-
-
-document.addEventListener("DOMContentLoaded", function() {
-  const toggleBtn = document.getElementById("modeToggle");
-
-  toggleBtn.addEventListener("click", function() {
-    document.body.classList.toggle("dark-mode");
-
-    toggleBtn.textContent =
-      document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
-  });
-});
-
-
-
+toggleBtn.onclick = () => {
+  document.body.classList.toggle("dark-mode");
+  toggleBtn.textContent =
+    document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+};
 
 </script>
-
 
 </body>
 </html>
