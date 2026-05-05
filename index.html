@@ -28,6 +28,13 @@ body.dark {
 }
 
 /* NAVBAR */
+
+/* NAVBAR */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 nav {
   margin: 10px;
   padding: 12px;
@@ -49,22 +56,7 @@ nav a {
 }
 
 
-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-/* TOGGLE */
-#modeToggle {
-  position: fixed;
-  top: 80px;
-  left: 15px;
-  background: #14b8a6;
-  border: none;
-  padding: 10px;
-  border-radius: 50%;
-  color: white;
-}
+
 
 /* HERO */
 /* HERO SECTION */
@@ -483,43 +475,35 @@ body {
 }
 
 /* Dark mode */
-body.dark-mode {
-  background: #121212;
-  color: white;
-}
-
-/* Hero dark */
-.dark-mode .hero {
-  background: linear-gradient(135deg, #000000, #1a1a1a);
-}
-
-/* Cards dark */
-.dark-mode .project-card {
-  background: #1e1e1e;
-}
-
-
-.toggle-btn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 10;
-}
-
-
 .dark-toggle {
   position: fixed;
   top: 15px;
   right: 15px;
-  z-index: 50;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 18px;
 
   background: #111;
   color: #fff;
-  padding: 6px 10px;
-  border-radius: 30px;
+
+  border: none;
+  border-radius: 50%; /* perfect small circle */
+
   cursor: pointer;
 
-  font-size: 14px;
+  z-index: 100; /* navbar se neeche */
+}
+
+/* HOVER EFFECT */
+.dark-toggle:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
 }
 
 
