@@ -78,6 +78,27 @@ nav a {
   background: linear-gradient(135deg, #141e30, #243b55); /* darker */
   color: white;
   padding: 20px;
+ position: relative;
+}
+
+
+.dark-toggle {
+  position: absolute;
+
+  top: 20px;
+  right: 20px;
+
+  width: 35px;
+  height: 35px;
+
+  border-radius: 50%;
+  border: none;
+
+  background: #111;
+  color: #fff;
+
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .hero h1 {
@@ -541,10 +562,12 @@ body {
   <a href="#contact">Contact</a>
 </nav>
 
-<button id="modeToggle">🌙</button>
 
 <!-- HERO -->
 <section class="hero">
+
+
+<button id="modeToggle">🌙</button>
   <div class="hero-content">
     <h1>Hi, I'm Ali 👋</h1>
     <h2 id="typing"></h2>
