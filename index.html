@@ -80,6 +80,21 @@ nav a {
   -webkit-background-clip: text;
   color: transparent;
   margin-bottom: 10px;
+
+animation: floatText 3s ease-in-out infinite;
+}
+
+/* KEYFRAMES */
+@keyframes floatText {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 /* TEXT */
