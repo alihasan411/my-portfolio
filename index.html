@@ -493,27 +493,34 @@ el.classList.add("show");
 
 
 
-/* NAME CHANGING EFFECT */
-const names = [
-  "Hi, I'm Ali 👋",
-  "Hi, I'm Ayaan 👋",
-  "Hi, I'm Developer 👋"
-];
+/* ONLY ALI TYPING EFFECT */
 
-let nameIndex = 0;
+const text = "Hi, I'm Ali 👋";
 
-function changeName() {
-  const nameEl = document.getElementById("name");
+let i = 0;
+let isDeleting = false;
 
-  nameEl.textContent = names[nameIndex];
+function typeName() {
+  const el = document.getElementById("name");
 
-  nameIndex = (nameIndex + 1) % names.length;
+  if (!isDeleting) {
+    el.textContent = text.substring(0, i++);
+    if (i > text.length) {
+      isDeleting = true;
+      setTimeout(typeName, 1000); // pause
+      return;
+    }
+  } else {
+    el.textContent = text.substring(0, i--);
+    if (i === 0) {
+      isDeleting = false;
+    }
+  }
+
+  setTimeout(typeName, isDeleting ? 50 : 100);
 }
 
-setInterval(changeName, 2000);
-
-// start first
-changeName();
+typeName();
 
 
 
