@@ -136,6 +136,61 @@ body.dark textarea {
   background: #1e293b;
   color: white;
 }
+
+
+/* FADE IN */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.8s;
+}
+
+/* SHOW ANIMATION */
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* CARD HOVER GLOW */
+.card:hover {
+  box-shadow: 0 0 25px rgba(20,184,166,0.5);
+}
+
+/* IMAGE ZOOM */
+.card img {
+  transition: 0.4s;
+}
+
+.card:hover img {
+  transform: scale(1.08);
+}
+
+/* BUTTON HOVER */
+button:hover {
+  transform: scale(1.05);
+}
+
+/* NAV HOVER LINE */
+nav a {
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: #14b8a6;
+  left: 0;
+  bottom: -5px;
+  transition: 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+
   </style>
 </head>
 
@@ -151,16 +206,16 @@ body.dark textarea {
 <button id="modeToggle">🌙</button>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero fade-in">
   <h1>Hi, I'm Ali</h1>
   <p>Front-End Developer</p>
   <button>View My Work</button>
 </section>
 
 <!-- PROJECTS -->
-<section class="projects">
+<section class="projects fade-in">
 
-  <div class="card">
+  <div class="card fade-in">
     <img src="https://picsum.photos/300/200">
     <h3>Project 1</h3>
     <p>Simple project description</p>
@@ -179,7 +234,7 @@ body.dark textarea {
 </section>
 
 <!-- CONTACT -->
-<section class="contact">
+<section class="contact fade-in">
   <h2>Contact Me</h2>
   <input type="text" placeholder="Your Name">
   <input type="email" placeholder="Your Email">
@@ -199,6 +254,21 @@ body.dark textarea {
       btn.innerHTML = "🌙";
     }
   });
+
+
+const elements = document.querySelectorAll('.fade-in');
+
+window.addEventListener('scroll', () => {
+  elements.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+
+    if (top < window.innerHeight - 100) {
+      el.classList.add('show');
+    }
+  });
+});
+
+
 </script>
 
 </body>
