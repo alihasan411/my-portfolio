@@ -84,18 +84,21 @@ nav a {
 animation: floatText 3s ease-in-out infinite;
 }
 
-/* KEYFRAMES */
-@keyframes floatText {
+@keyframes slideTopBottom {
   0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
+    transform: translateY(-50px);
+    opacity: 0;
   }
   100% {
-    transform: translateY(0px);
+    transform: translateY(0);
+    opacity: 1;
   }
 }
+
+.hero-content {
+  animation: slideTopBottom 1.5s ease-out;
+}
+
 
 /* TEXT */
 .hero p {
@@ -380,7 +383,7 @@ body {
 
   <div class="hero-content">
     <h1><span id="typing"></span></h1>
-
+<p>Frontend Developer</p>
     <p>I build modern and responsive websites</p>
 
     <div class="hero-buttons">
