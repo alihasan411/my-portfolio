@@ -226,48 +226,48 @@ body {
 
 <!-- NAV -->
 <nav>
-  <a href="#">Home</a>
-  <a href="#">Projects</a>
-  <a href="#">Contact</a>
+  <a href="#hero">Home</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
 </nav>
 
 <button id="modeToggle">🌙</button>
 
 <!-- HERO -->
-<section class="hero fade-in">
+<section id="hero" class="hero fade-in">
   <h1><span id="typing"></span></h1>
   <p>Front-End Developer</p>
-  <button>View My Work</button>
+  <button onclick="goProjects()">View My Work</button>
 </section>
 
 <!-- PROJECTS -->
-<section class="projects fade-in">
+<section id="projects" class="projects fade-in">
 
   <div class="card fade-in">
     <img src="https://picsum.photos/300/200">
     <h3>Project 1</h3>
     <p>Simple project description</p>
-    <button>GitHub</button>
-    <button>View</button>
+    <button onclick="openGit()">GitHub</button>
+<button onclick="openLive()">View</button>
   </div>
 
   <div class="card">
     <img src="https://picsum.photos/300/201">
     <h3>Project 2</h3>
     <p>Simple project description</p>
-    <button>GitHub</button>
-    <button>View</button>
+   <button onclick="openGit()">GitHub</button>
+<button onclick="openLive()">View</button>
   </div>
 
 </section>
 
 <!-- CONTACT -->
-<section class="contact fade-in">
+<section id="contact" class="contact fade-in">
   <h2>Contact Me</h2>
   <input type="text" placeholder="Your Name">
   <input type="email" placeholder="Your Email">
   <textarea placeholder="Your Message"></textarea>
-  <button class="send-btn">Send</button>
+  <button class="send-btn" onclick="sendMsg()">Send</button>
 </section>
 
 <script>
@@ -312,6 +312,29 @@ function typing() {
 typing();
 
 
+
+
+function goProjects() {
+  document.querySelector(".projects").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+
+
+function openGit() {
+  window.open("https://github.com/", "_blank");
+}
+
+function openLive() {
+  window.open("https://example.com", "_blank");
+}
+
+
+
+function sendMsg() {
+  alert("Message sent (demo)");
+}
 </script>
 
 </body>
