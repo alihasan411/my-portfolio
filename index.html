@@ -336,6 +336,36 @@ button {
 
 
 
+/* LIGHT MODE (default) */
+body {
+  background: #ffffff;
+  color: #111;
+}
+
+/* DARK MODE */
+body.dark {
+  background: #0f172a;
+  color: #ffffff;
+}
+
+/* CARD DARK */
+body.dark .card {
+  background: #1e293b;
+}
+
+/* NAVBAR DARK */
+body.dark nav {
+  background: #0f766e;
+}
+
+/* INPUT DARK */
+body.dark input,
+body.dark textarea {
+  background: #1e293b;
+  color: white;
+}
+
+
 
 
 </style>
@@ -351,7 +381,7 @@ button {
 
 <a href="#projects" class="btn">View My Work</a>
 
-
+<button id="modeToggle">🌙</button>
 
   
   
@@ -604,6 +634,19 @@ typeEffect();
 
 
 
+
+const btn = document.getElementById("modeToggle");
+
+btn.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+
+  // icon change
+  if (document.body.classList.contains("dark")) {
+    btn.innerHTML = "☀️";
+  } else {
+    btn.innerHTML = "🌙";
+  }
+});
 
 </script>
 
