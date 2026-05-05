@@ -3,10 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>My Portfolio</title>
 
 <style>
+/* GOOGLE FONT (optional) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -15,261 +19,159 @@
 
 /* BODY */
 body {
-  font-family: Arial, sans-serif;
-  background: #0f172a;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #0f172a, #020617);
   color: white;
+  transition: 0.4s;
 }
 
-/* CONTAINER FIX */
+/* LIGHT MODE */
+body.light {
+  background: linear-gradient(135deg, #f1f5f9, #ffffff);
+  color: #111;
+}
+
+/* CONTAINER */
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: auto;
   padding: 15px;
 }
 
-/* NAVBAR FIX */
+/* GLASS NAVBAR */
 nav {
   position: sticky;
-  top: 0;
-  background: #14b8a6;
-  padding: 10px;
-  border-radius: 10px;
-  z-index: 1000;
+  top: 10px;
+  margin: 10px;
+  padding: 12px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  background: rgba(20, 184, 166, 0.3);
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 25px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
 
-/* HERO FIX */
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #14b8a6;
+}
+
+/* TOGGLE BUTTON */
+#modeToggle {
+  position: fixed;
+  top: 90px;
+  left: 15px;
+  background: #14b8a6;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  color: white;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* HERO */
 .hero {
-  padding: 30px 15px;
   text-align: center;
+  padding: 50px 20px;
 }
 
-/* PROJECT CARDS */
+.hero h1 {
+  font-size: 26px;
+  background: linear-gradient(90deg, #14b8a6, #22d3ee);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero button {
+  margin-top: 15px;
+  background: linear-gradient(45deg, #14b8a6, #22d3ee);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 12px;
+  color: white;
+  box-shadow: 0 5px 20px rgba(20,184,166,0.4);
+}
+
+/* PROJECT GRID */
 .projects {
   display: flex;
   flex-direction: column;
-  align-items: center; /* center cards */
-  gap: 20px;
+  align-items: center;
+  gap: 25px;
 }
 
-/* CARD DESIGN */
+/* GLASS CARD */
 .card {
   width: 100%;
   max-width: 320px;
-  background: #1e293b;
-  border-radius: 20px;
+  border-radius: 25px;
   padding: 15px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  transition: 0.4s;
+  position: relative;
+  overflow: hidden;
 }
 
-/* IMAGE FIX (IMPORTANT) */
+/* GLOW EFFECT */
+.card::before {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background: linear-gradient(120deg, transparent, rgba(20,184,166,0.3), transparent);
+  transform: rotate(25deg);
+  top: -100%;
+  left: -100%;
+  transition: 0.5s;
+}
+
+.card:hover::before {
+  top: 0;
+  left: 0;
+}
+
+/* HOVER LIFT */
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+/* IMAGE */
 .card img {
   width: 100%;
   height: 200px;
-  object-fit: cover;   /* 🔥 image stretch fix */
+  object-fit: cover;
   border-radius: 15px;
+}
+
+/* TEXT */
+.card h3 {
+  margin-top: 10px;
+}
+
+.card p {
+  font-size: 14px;
+  opacity: 0.8;
 }
 
 /* BUTTONS */
 .card button {
   margin-top: 10px;
-  padding: 8px 12px;
-  border: none;
+  padding: 8px 14px;
   border-radius: 10px;
-  background: #14b8a6;
-  color: white;
-}
-
-/* ROUTINE */
-.routine {
-  padding: 20px;
-}
-
-/* CONTACT */
-.contact {
-  padding: 20px;
-}
-
-/* INPUT FIX */
-input, textarea {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  border-radius: 8px;
   border: none;
-}
-
-/* BUTTON */
-.send-btn {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  background: #14b8a6;
-  border: none;
-  border-radius: 10px;
-  color: white;
-}
-
-/* Image */
-.project-card img {
-  width: 100%;
-  border-radius: 15px;
-  border: 3px solid #00e0ff;
-  margin-bottom: 15px;
-height: 200px;
-  object-fit: cover;
-
-}
-
-
-/* Title */
-.project-card h3 {
-  color: white;
-  margin-bottom: 10px;
-}
-
-/* Text */
-.project-card p {
-  color: #ccc;
-  font-size: 14px;
-}
-
-/* Buttons container */
-.project-card .btns {
-  margin-top: 15px;
-}
-
-/* Buttons */
-.project-card a {
-  display: inline-block;
-  padding: 10px 18px;
-  margin: 5px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-/* Live Demo (Glow button) */
-.project-card a:first-child {
-  background: #00e0c6;
-  color: black;
-  box-shadow: 0 0 15px #00e0c6;
-}
-
-/* View Code (Outline button) */
-.project-card a:last-child {
-  border: 2px solid #00e0c6;
-  color: #00e0c6;
-}
-
-/* Hover */
-.project-card a:hover {
-  transform: scale(1.05);
-}
-
-.buttons {
-  margin-top: 10px;
-
-
-.buttons {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-}
-
-.buttons a {
-  display: block;
-  margin: 8px 0;
-  background: #00e0b8;
-  padding: 10px;
-  text-align: center;
-  border-radius: 8px;
-  color: white;
-  text-decoration: none;
-}
-
-/* CONTACT */
-.contact-box {
-  background: #1c2b45;
-  color: white;
-  padding: 15px;
-  border-radius: 12px;
-  margin-bottom: 10px;
-}
-
-input, textarea {
-  width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
-
-button {
-  width: 100%;
-  padding: 12px;
-  background: #00e0b8;
-  border: none;
-  color: white;
-  border-radius: 8px;
-}
-
-@media (max-width: 600px) {
-  .project-card img {
-    height: 180px;
-  }
-
-  .hero h1 {
-    font-size: 20px;
-  }
-
-  .buttons {
-    flex-direction: column;
-  }
-}
-
-
-
-
-#routine {
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.timeline {
-  position: relative;
-  max-width: 400px;
-  margin: 20px auto;
-  border-left: 3px solid #00e0c6;
-  padding-left: 20px;
-}
-
-.timeline-item {
-  margin-bottom: 20px;
-  position: relative;
-}
-
-.timeline-item .dot {
-  position: absolute;
-  left: -11px;
-  top: 5px;
-  width: 15px;
-  height: 15px;
-  background: #00e0c6;
-  border-radius: 50%;
-}
-
-.timeline-item p {
-  margin: 0;
-}
-
+  cursor: pointer;
+  transition: 0.3
 
 
 
@@ -332,37 +234,6 @@ button {
   input, textarea {
     width: 100%;
   }
-}
-
-
-
-/* LIGHT MODE (default) */
-body {
-  background: #ffffff;
-  color: #111;
-}
-
-/* DARK MODE */
-body.dark {
-  background: #0f172a;
-  color: #ffffff;
-}
-
-/* CARD DARK */
-body.dark .card {
-  background: #1e293b;
-}
-
-/* NAVBAR DARK */
-body.dark nav {
-  background: #0f766e;
-}
-
-/* INPUT DARK */
-body.dark input,
-body.dark textarea {
-  background: #1e293b;
-  color: white;
 }
 
 
