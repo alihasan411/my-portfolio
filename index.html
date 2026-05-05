@@ -262,6 +262,19 @@ body {
   }
 }
 
+
+#typing::after {
+  content: "|";
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+
   </style>
 </head>
 
@@ -384,18 +397,18 @@ window.addEventListener('scroll', () => {
 
 
 
-const text = "Hi, I'm Ali - Frontend Developer";
-let i = 0;
+const text = "Hi, I'm Ali 👋";
+let index = 0;
 
-function typing() {
-  if (i < text.length) {
-    document.getElementById("typing").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(typing, 80);
+function typeEffect() {
+  if (index < text.length) {
+    document.getElementById("typing").innerHTML += text.charAt(index);
+    index++;
+    setTimeout(typeEffect, 80);
   }
 }
 
-typing();
+typeEffect();
 
 
 
