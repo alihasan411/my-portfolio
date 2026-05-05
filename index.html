@@ -361,7 +361,7 @@ body.dark-mode .contact-form textarea {
 <section class="hero" id="hero">
 <button id="modeToggle">🌙</button>
 <div class="hero-content">
-  <h1>Hi, I'm Ali 👋</h1>
+  <h1 id="name"></h1>
   <h2 id="typing"></h2>
   <a href="#projects" class="btn">View My Work</a>
 </div>
@@ -479,6 +479,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
+
+
 /* scroll animation */
 window.addEventListener("scroll",()=>{
 document.querySelectorAll(".fade-in").forEach(el=>{
@@ -487,6 +489,34 @@ el.classList.add("show");
 }
 });
 });
+
+
+
+
+/* NAME CHANGING EFFECT */
+const names = [
+  "Hi, I'm Ali 👋",
+  "Hi, I'm Ayaan 👋",
+  "Hi, I'm Developer 👋"
+];
+
+let nameIndex = 0;
+
+function changeName() {
+  const nameEl = document.getElementById("name");
+
+  nameEl.textContent = names[nameIndex];
+
+  nameIndex = (nameIndex + 1) % names.length;
+}
+
+setInterval(changeName, 2000);
+
+// start first
+changeName();
+
+
+
 
 </script>
 
