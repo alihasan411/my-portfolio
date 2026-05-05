@@ -65,53 +65,30 @@ nav a {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #141e30, #243b55); /* darker */
   color: white;
   padding: 20px;
 }
 
-/* Content animation (TOP → BOTTOM) */
-.hero-content {
-  animation: floatText 3s ease-in-out infinite;
-}
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Heading */
 .hero h1 {
   font-size: 32px;
   margin-bottom: 10px;
 }
 
-/* Sub text */
-.hero p {
-  font-size: 18px;
-  opacity: 0.9;
+.hero h2 {
+  font-size: 20px;
+  color: #00e5ff;
+  height: 25px;
   margin-bottom: 20px;
 }
 
 /* Button */
 .btn {
-  display: inline-block;
   padding: 12px 25px;
   background: #00e5ff;
   color: black;
   border-radius: 25px;
   text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background: #00bcd4;
 }
 
 /* PROJECTS */
@@ -466,7 +443,7 @@ body {
 <section class="hero">
   <div class="hero-content">
     <h1>Hi, I'm Ali 👋</h1>
-    <p>Frontend Developer | Creative Designer</p>
+    <h2 id="typing"></h2>
     <a href="#projects" class="btn">View My Work</a>
   </div>
 </section>
@@ -603,49 +580,43 @@ window.addEventListener('scroll', () => {
 
 
 
-const texts = [
-  "Hi, I'm Ali 👋",
-  "I'm a Frontend Developer 💻",
-  "I build modern websites 🚀"
+const textArray = [
+  "Frontend Developer",
+  "Web Designer",
+  "Creative Coder"
 ];
 
-let count = 0;
 let index = 0;
+let charIndex = 0;
 let currentText = "";
-let letter = "";
+let isDeleting = false;
 
-function type() {
+function typeEffect() {
+  const typing = document.getElementById("typing");
 
-  if (count === texts.length) {
-    count = 0;
-  }
+  if (index >= textArray.length) index = 0;
 
-  currentText = texts[count];
-  letter = currentText.slice(0, ++index);
+  currentText = textArray[index];
 
-  document.getElementById("typing").innerHTML = letter;
-
-  if (letter.length === currentText.length) {
-    setTimeout(() => {
-      erase();
-    }, 1500);
+  if (!isDeleting) {
+    typing.textContent = currentText.substring(0, charIndex++);
+    if (charIndex > currentText.length) {
+      isDeleting = true;
+      setTimeout(typeEffect, 1000);
+      return;
+    }
   } else {
-    setTimeout(type, 80);
+    typing.textContent = currentText.substring(0, charIndex--);
+    if (charIndex === 0) {
+      isDeleting = false;
+      index++;
+    }
   }
+
+  setTimeout(typeEffect, isDeleting ? 50 : 100);
 }
 
-function erase() {
-  if (index > 0) {
-    letter = currentText.slice(0, --index);
-    document.getElementById("typing").innerHTML = letter;
-    setTimeout(erase, 40);
-  } else {
-    count++;
-    setTimeout(type, 300);
-  }
-}
-
-type();
+typeEffect();
 
 
 
