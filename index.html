@@ -191,6 +191,34 @@ nav a:hover::after {
 }
 
 
+/* ANIMATED BACKGROUND */
+body {
+  background: linear-gradient(-45deg, #0f172a, #020617, #0f766e, #020617);
+  background-size: 400% 400%;
+  animation: bgMove 10s ease infinite;
+}
+
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+
+body {
+  animation: fadePage 1s ease;
+}
+
+@keyframes fadePage {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
   </style>
 </head>
 
@@ -207,7 +235,7 @@ nav a:hover::after {
 
 <!-- HERO -->
 <section class="hero fade-in">
-  <h1>Hi, I'm Ali</h1>
+  <h1><span id="typing"></span></h1>
   <p>Front-End Developer</p>
   <button>View My Work</button>
 </section>
@@ -267,6 +295,21 @@ window.addEventListener('scroll', () => {
     }
   });
 });
+
+
+
+const text = "Hi, I'm Ali - Frontend Developer";
+let i = 0;
+
+function typing() {
+  if (i < text.length) {
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typing, 80);
+  }
+}
+
+typing();
 
 
 </script>
