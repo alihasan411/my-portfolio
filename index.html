@@ -492,36 +492,106 @@ el.classList.add("show");
 
 
 
+<script>
 
-/* ONLY ALI TYPING EFFECT */
+/* =========================
+   🔥 NAME TYPING (ALI ONLY)
+========================= */
 
-const text = "Hi, I'm Ali 👋";
-
-let i = 0;
-let isDeleting = false;
+const nameText = "Hi, I'm Ali 👋";
+let ni = 0;
+let nDeleting = false;
 
 function typeName() {
   const el = document.getElementById("name");
 
-  if (!isDeleting) {
-    el.textContent = text.substring(0, i++);
-    if (i > text.length) {
-      isDeleting = true;
-      setTimeout(typeName, 1000); // pause
+  if (!el) return;
+
+  if (!nDeleting) {
+    el.textContent = nameText.substring(0, ni++);
+    if (ni > nameText.length) {
+      nDeleting = true;
+      setTimeout(typeName, 1000);
       return;
     }
   } else {
-    el.textContent = text.substring(0, i--);
-    if (i === 0) {
-      isDeleting = false;
+    el.textContent = nameText.substring(0, ni--);
+    if (ni === 0) {
+      nDeleting = false;
     }
   }
 
-  setTimeout(typeName, isDeleting ? 50 : 100);
+  setTimeout(typeName, nDeleting ? 50 : 100);
 }
 
-typeName();
 
+/* =========================
+   🔥 ROLE TYPING (Frontend...)
+========================= */
+
+const roles = [
+  "Frontend Developer",
+  "Web Designer",
+  "Creative Coder"
+];
+
+let ri = 0;
+let rChar = 0;
+let rDeleting = false;
+
+function typeRole() {
+  const el = document.getElementById("typing");
+
+  if (!el) return;
+
+  let text = roles[ri];
+
+  if (!rDeleting) {
+    el.textContent = text.substring(0, rChar++);
+    if (rChar > text.length) {
+      rDeleting = true;
+      setTimeout(typeRole, 1000);
+      return;
+    }
+  } else {
+    el.textContent = text.substring(0, rChar--);
+    if (rChar === 0) {
+      rDeleting = false;
+      ri = (ri + 1) % roles.length;
+    }
+  }
+
+  setTimeout(typeRole, rDeleting ? 50 : 100);
+}
+
+
+/* =========================
+   🔥 START BOTH
+========================= */
+typeName();
+typeRole();
+
+
+/* =========================
+   🔥 TOGGLE FIX
+========================= */
+document.getElementById("modeToggle").onclick = () => {
+  document.body.classList.toggle("dark-mode");
+};
+
+
+/* =========================
+   🔥 SCROLL ANIMATION
+========================= */
+window.addEventListener("scroll", () => {
+  document.querySelectorAll(".fade-in").forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+      el.classList.add("show");
+    }
+  });
+});
+
+</script>
 
 
 
