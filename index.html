@@ -8,344 +8,243 @@
 <style>
 
 /* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 /* BODY */
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(-45deg, #0f172a, #020617, #0f766e, #020617);
-  background-size: 400% 400%;
-  animation: bgMove 10s ease infinite;
-  color: white;
-  transition: 0.3s;
+body{
+  font-family:'Segoe UI',sans-serif;
+  background:linear-gradient(-45deg,#0f172a,#020617,#0f766e,#020617);
+  background-size:400% 400%;
+  animation:bgMove 10s ease infinite;
+  color:white;
+  transition:0.3s;
+}
+
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
 /* DARK MODE */
-body.dark-mode {
-  background: #ffffff;
-  color: #111;
-}
-
-/* BG */
-@keyframes bgMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* NAVBAR */
-nav {
-  margin: 10px;
-  padding: 12px;
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  background: rgba(20, 184, 166, 0.3);
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-}
-
-nav a {
-  text-decoration: none;
-  color: white;
-  font-weight: 600;
-  position: relative;
-}
-
-nav a::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  background: #14b8a6;
-  left: 0;
-  bottom: -5px;
-  transition: 0.3s;
-}
-
-nav a:hover::after {
-  width: 100%;
-}
-
-/* HERO */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background: linear-gradient(135deg, #141e30, #243b55);
-  padding: 20px;
-  position: relative;
-}
-
-.hero-content {
-  animation: fadeUp 1s ease forwards;
-}
-
-@keyframes fadeUp {
-  from {opacity:0; transform:translateY(40px);}
-  to {opacity:1; transform:translateY(0);}
-}
-
-.hero h1 {
-  font-size: 32px;
-  margin-bottom: 10px;
-}
-
-.hero h2 {
-  font-size: 20px;
-  color: #00e5ff;
-  height: 25px;
-  margin-bottom: 20px;
-}
-
-/* BUTTON */
-.btn {
-  padding: 12px 25px;
-  background: #00e5ff;
-  color: black;
-  border-radius: 25px;
-  text-decoration: none;
-}
-
-/* TOGGLE */
-#modeToggle {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 1000;
-  background: #00e5ff;
-  border: none;
-  padding: 10px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-/* PROJECTS */
-.projects {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 25px;
-  padding: 40px 20px;
-}
-
-/* CARD */
-.project-card {
-  width: 100%;
-  max-width: 320px;
-  border-radius: 20px;
-  padding: 15px;
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-  transition: 0.4s;
-  text-align: center;
-}
-
-.project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 25px rgba(20,184,166,0.5);
-}
-
-/* IMAGE BOX */
-.img-box {
-  position: relative;
-  aspect-ratio: 16/9;
-  overflow: hidden;
-  border-radius: 10px;
-}
-
-.img-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: 0.4s;
-}
-
-.img-box:hover img {
-  transform: scale(1.08);
-}
-
-/* TAG */
-.tag {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: #00bcd4;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 10px;
-  font-size: 12px;
-}
-
-/* OVERLAY */
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: 0.3s;
-}
-
-.img-box:hover .overlay {
-  opacity: 1;
-}
-
-.overlay a {
-  background: #00bcd4;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 20px;
-  text-decoration: none;
-}
-
-/* CONTACT */
-#contact {
-  padding: 60px 20px;
-  text-align: center;
-  background: linear-gradient(135deg, #0f172a, #1e293b);
-}
-
-.contact-form {
-  max-width: 420px;
-  margin: 40px auto;
-  padding: 25px;
-  border-radius: 20px;
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(10px);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  padding: 14px;
-  border: none;
-  border-radius: 12px;
-  outline: none;
-  background: rgba(255,255,255,0.08);
-  color: white;
-}
-
-.contact-form button {
-  padding: 14px;
-  border: none;
-  border-radius: 12px;
-  background: linear-gradient(45deg, #38bdf8, #0ea5e9);
-  color: black;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-/* FADE */
-.fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: 0.6s ease;
-}
-
-.fade-in.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-
-
-/* HERO SMOOTH ANIMATION */
-.hero-content {
-  opacity: 0;
-  transform: translateY(60px);
-  animation: heroFade 1s ease-out forwards;
-}
-
-@keyframes heroFade {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-.hero h1 {
-  animation: heroFade 1s ease forwards;
-}
-
-.hero h2 {
-  animation: heroFade 1s ease 0.3s forwards;
-}
-
-.btn {
-  animation: heroFade 1s ease 0.6s forwards;
-}
-
-
-
-
-body.dark-mode {
-  background: #ffffff;
-  color: #111;
+body.dark-mode{
+  background:#fff;
+  color:#111;
 }
 
 /* NAV */
-body.dark-mode nav {
-  background: rgba(0,0,0,0.1);
+nav{
+  margin:10px;
+  padding:12px;
+  border-radius:20px;
+  backdrop-filter:blur(10px);
+  background:rgba(20,184,166,0.3);
+  display:flex;
+  justify-content:center;
+  gap:25px;
 }
 
-body.dark-mode nav a {
-  color: #111;
+nav a{
+  text-decoration:none;
+  color:white;
+  font-weight:600;
+  position:relative;
 }
+
+nav a::after{
+  content:"";
+  position:absolute;
+  width:0%;
+  height:2px;
+  background:#14b8a6;
+  left:0;
+  bottom:-5px;
+  transition:0.3s;
+}
+
+nav a:hover::after{width:100%;}
 
 /* HERO */
-body.dark-mode .hero {
-  background: linear-gradient(135deg, #e2e8f0, #ffffff);
+.hero{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background:linear-gradient(135deg,#141e30,#243b55);
+  padding:20px;
+  position:relative;
 }
 
-/* CARDS */
-body.dark-mode .project-card {
-  background: #f1f5f9;
-  color: #111;
+.hero-content{
+  animation:fadeUp 1s ease forwards;
+}
+
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(40px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+.hero h1{font-size:32px;margin-bottom:10px;}
+.hero h2{font-size:20px;color:#00e5ff;height:25px;margin-bottom:20px;}
+
+.btn{
+  padding:12px 25px;
+  background:#00e5ff;
+  color:black;
+  border-radius:25px;
+  text-decoration:none;
+}
+
+/* TOGGLE */
+#modeToggle{
+  position:fixed;
+  top:15px;
+  right:15px;
+  z-index:1000;
+  background:#00e5ff;
+  border:none;
+  padding:10px;
+  border-radius:50%;
+  cursor:pointer;
+}
+
+/* PROJECTS */
+.projects{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:25px;
+  padding:40px 20px;
+}
+
+/* CARD */
+.project-card{
+  width:100%;
+  max-width:320px;
+  border-radius:20px;
+  padding:15px;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(12px);
+  box-shadow:0 10px 30px rgba(0,0,0,0.4);
+  transition:0.4s;
+  text-align:center;
+}
+
+.project-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 25px rgba(20,184,166,0.5);
+}
+
+/* IMAGE */
+.img-box{
+  position:relative;
+  aspect-ratio:16/9;
+  overflow:hidden;
+  border-radius:10px;
+}
+
+.img-box img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:0.4s;
+}
+
+.img-box:hover img{transform:scale(1.08);}
+
+/* TAG */
+.tag{
+  position:absolute;
+  top:10px;
+  left:10px;
+  background:#00bcd4;
+  color:white;
+  padding:5px 10px;
+  border-radius:10px;
+  font-size:12px;
+}
+
+/* OVERLAY */
+.overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  transition:0.3s;
+}
+
+.img-box:hover .overlay{opacity:1;}
+
+.overlay a{
+  background:#00bcd4;
+  color:white;
+  padding:10px 20px;
+  border-radius:20px;
+  text-decoration:none;
 }
 
 /* CONTACT */
-body.dark-mode #contact {
-  background: #f8fafc;
+#contact{
+  padding:60px 20px;
+  text-align:center;
+  background:linear-gradient(135deg,#0f172a,#1e293b);
 }
 
-/* FORM */
-body.dark-mode .contact-form input,
-body.dark-mode .contact-form textarea {
-  background: #e2e8f0;
-  color: #111;
+.contact-form{
+  max-width:420px;
+  margin:40px auto;
+  padding:25px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(10px);
+  display:flex;
+  flex-direction:column;
+  gap:15px;
 }
 
-
-
-/* APPLY FLOAT TO BOTH TEXTS */
-
-.hero h1,
-.hero h2 {
-  animation: floatMove 3s ease-in-out infinite;
+.contact-form input,
+.contact-form textarea{
+  padding:14px;
+  border:none;
+  border-radius:12px;
+  outline:none;
+  background:rgba(255,255,255,0.08);
+  color:white;
 }
 
-.hero h1 {
-  animation: floatMove 3s ease-in-out infinite;
+.contact-form button{
+  padding:14px;
+  border:none;
+  border-radius:12px;
+  background:linear-gradient(45deg,#38bdf8,#0ea5e9);
+  color:black;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-.hero h2 {
-  animation: floatMove 3s ease-in-out infinite;
-  animation-delay: 0.5s;
+/* FADE */
+.fade-in{
+  opacity:0;
+  transform:translateY(30px);
+  transition:0.6s ease;
+}
+.fade-in.show{
+  opacity:1;
+  transform:translateY(0);
 }
 
+/* DARK MODE EXTRA */
+body.dark-mode nav{background:rgba(0,0,0,0.1);}
+body.dark-mode nav a{color:#111;}
+body.dark-mode .hero{background:#f1f5f9;}
+body.dark-mode .project-card{background:#e2e8f0;color:#111;}
+body.dark-mode #contact{background:#f8fafc;}
+body.dark-mode input,
+body.dark-mode textarea{background:#e2e8f0;color:#111;}
 
 </style>
 </head>
@@ -353,90 +252,78 @@ body.dark-mode .contact-form textarea {
 <body>
 
 <nav>
-  <a href="#hero">Home</a>
-  <a href="#projects">Projects</a>
-  <a href="#contact">Contact</a>
+<a href="#hero">Home</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
 </nav>
 
 <section class="hero" id="hero">
 <button id="modeToggle">🌙</button>
 <div class="hero-content">
-  <h1 id="name"></h1>
-  <h2 id="typing"></h2>
-  <a href="#projects" class="btn">View My Work</a>
+<h1 id="name"></h1>
+<h2 id="typing"></h2>
+<a href="#projects" class="btn">View My Work</a>
 </div>
 </section>
 
 <section id="projects" class="projects fade-in">
 
 <div class="project-card fade-in">
-  <div class="img-box">
-    <span class="tag">Planner App</span>
-    <img src="IMG-20260502-WA0003.jpg">
-    <div class="overlay">
-      <a href="smart-daily-planner.html" target="_blank">Live Demo</a>
-    </div>
-  </div>
-  <h3>Smart Daily Planner</h3>
-  <p>Task management app with dark mode & storage</p>
+<div class="img-box">
+<span class="tag">Planner App</span>
+<img src="IMG-20260502-WA0003.jpg">
+<div class="overlay"><a href="smart-daily-planner.html" target="_blank">Live Demo</a></div>
+</div>
+<h3>Smart Daily Planner</h3>
+<p>Task management app with dark mode & storage</p>
 </div>
 
 <div class="project-card fade-in">
-  <div class="img-box">
-    <span class="tag">Quiz JS App</span>
-    <img src="creatvise-qOA1-UjXxSc-unsplash.jpg">
-    <div class="overlay">
-      <a href="smart-quiz-app.html" target="_blank">Live Demo</a>
-    </div>
-  </div>
-  <h3>Smart Quiz App</h3>
-  <p>Interactive quiz with score & progress bar</p>
+<div class="img-box">
+<span class="tag">Quiz JS App</span>
+<img src="creatvise-qOA1-UjXxSc-unsplash.jpg">
+<div class="overlay"><a href="smart-quiz-app.html" target="_blank">Live Demo</a></div>
+</div>
+<h3>Smart Quiz App</h3>
+<p>Interactive quiz with score & progress bar</p>
 </div>
 
 <div class="project-card fade-in">
-  <div class="img-box">
-    <span class="tag">Task Manager</span>
-    <img src="jonathan-borba-0Nrq6UvFpI8-unsplash.jpg">
-    <div class="overlay">
-      <a href="todo.html" target="_blank">Live Demo</a>
-    </div>
-  </div>
-  <h3>Todo App</h3>
-  <p>Manage daily tasks</p>
+<div class="img-box">
+<span class="tag">Task Manager</span>
+<img src="jonathan-borba-0Nrq6UvFpI8-unsplash.jpg">
+<div class="overlay"><a href="todo.html" target="_blank">Live Demo</a></div>
+</div>
+<h3>Todo App</h3>
+<p>Manage daily tasks</p>
 </div>
 
 <div class="project-card fade-in">
-  <div class="img-box">
-    <span class="tag">Calculator</span>
-    <img src="cardmapr-nl-tvzykmBf3r0-unsplash.jpg">
-    <div class="overlay">
-      <a href="calculator.html" target="_blank">Live Demo</a>
-    </div>
-  </div>
-  <h3>Smart Calculator</h3>
-  <p>Perform calculations</p>
+<div class="img-box">
+<span class="tag">Calculator</span>
+<img src="cardmapr-nl-tvzykmBf3r0-unsplash.jpg">
+<div class="overlay"><a href="calculator.html" target="_blank">Live Demo</a></div>
+</div>
+<h3>Smart Calculator</h3>
+<p>Perform calculations</p>
 </div>
 
 <div class="project-card fade-in">
-  <div class="img-box">
-    <span class="tag">Weather App</span>
-    <img src="raychan-cFiQbSH7-RY-unsplash.jpg">
-    <div class="overlay">
-      <a href="weather.html" target="_blank">Live Demo</a>
-    </div>
-  </div>
-  <h3>Weather App</h3>
-  <p>Real-time weather</p>
+<div class="img-box">
+<span class="tag">Weather App</span>
+<img src="raychan-cFiQbSH7-RY-unsplash.jpg">
+<div class="overlay"><a href="weather.html" target="_blank">Live Demo</a></div>
+</div>
+<h3>Weather App</h3>
+<p>Real-time weather</p>
 </div>
 
 </section>
 
 <section id="contact" class="contact fade-in">
 <h2>Contact Me</h2>
-<div class="contact">
 <p>Email: alihassanayesha752@gmail.com</p>
 <p>📞 +92 300 1234567</p>
-</div>
 <form class="contact-form">
 <input type="text" placeholder="Your Name">
 <input type="email" placeholder="Your Email">
@@ -447,153 +334,44 @@ body.dark-mode .contact-form textarea {
 
 <script>
 
-/* typing */
-const words=["Frontend Developer","Web Designer","Creative Coder"];
-let i=0,j=0,del=false;
-function type(){
-let el=document.getElementById("typing");
-let w=words[i];
-if(!del){el.textContent=w.substring(0,j++);if(j>w.length){del=true;setTimeout(type,1000);return;}}
-else{el.textContent=w.substring(0,j--);if(j===0){del=false;i=(i+1)%words.length;}}
-setTimeout(type,del?50:100);
+/* NAME */
+const nameText="Hi, I'm Ali 👋";
+let ni=0,nd=false;
+function typeName(){
+let el=document.getElementById("name");
+if(!nd){el.textContent=nameText.substring(0,ni++);if(ni>nameText.length){nd=true;setTimeout(typeName,1000);return;}}
+else{el.textContent=nameText.substring(0,ni--);if(ni===0)nd=false;}
+setTimeout(typeName,nd?50:100);
 }
-type();
 
-document.addEventListener("DOMContentLoaded", function() {
+/* ROLE */
+const roles=["Frontend Developer","Web Designer","Creative Coder"];
+let ri=0,rc=0,rd=false;
+function typeRole(){
+let el=document.getElementById("typing");
+let txt=roles[ri];
+if(!rd){el.textContent=txt.substring(0,rc++);if(rc>txt.length){rd=true;setTimeout(typeRole,1000);return;}}
+else{el.textContent=txt.substring(0,rc--);if(rc===0){rd=false;ri=(ri+1)%roles.length;}}
+setTimeout(typeRole,rd?50:100);
+}
 
-  const toggleBtn = document.getElementById("modeToggle");
+/* TOGGLE */
+document.getElementById("modeToggle").onclick=()=>{
+document.body.classList.toggle("dark-mode");
+};
 
-  toggleBtn.addEventListener("click", function() {
-
-    // body pe class add/remove
-    document.body.classList.toggle("dark-mode");
-
-    // icon change
-    if (document.body.classList.contains("dark-mode")) {
-      toggleBtn.textContent = "☀️";
-    } else {
-      toggleBtn.textContent = "🌙";
-    }
-
-  });
-
-});
-
-
-
-/* scroll animation */
+/* SCROLL */
 window.addEventListener("scroll",()=>{
 document.querySelectorAll(".fade-in").forEach(el=>{
-if(el.getBoundingClientRect().top < window.innerHeight-100){
+if(el.getBoundingClientRect().top<window.innerHeight-100){
 el.classList.add("show");
 }
 });
 });
 
-
-
-<script>
-
-/* =========================
-   🔥 NAME TYPING (ALI ONLY)
-========================= */
-
-const nameText = "Hi, I'm Ali 👋";
-let ni = 0;
-let nDeleting = false;
-
-function typeName() {
-  const el = document.getElementById("name");
-
-  if (!el) return;
-
-  if (!nDeleting) {
-    el.textContent = nameText.substring(0, ni++);
-    if (ni > nameText.length) {
-      nDeleting = true;
-      setTimeout(typeName, 1000);
-      return;
-    }
-  } else {
-    el.textContent = nameText.substring(0, ni--);
-    if (ni === 0) {
-      nDeleting = false;
-    }
-  }
-
-  setTimeout(typeName, nDeleting ? 50 : 100);
-}
-
-
-/* =========================
-   🔥 ROLE TYPING (Frontend...)
-========================= */
-
-const roles = [
-  "Frontend Developer",
-  "Web Designer",
-  "Creative Coder"
-];
-
-let ri = 0;
-let rChar = 0;
-let rDeleting = false;
-
-function typeRole() {
-  const el = document.getElementById("typing");
-
-  if (!el) return;
-
-  let text = roles[ri];
-
-  if (!rDeleting) {
-    el.textContent = text.substring(0, rChar++);
-    if (rChar > text.length) {
-      rDeleting = true;
-      setTimeout(typeRole, 1000);
-      return;
-    }
-  } else {
-    el.textContent = text.substring(0, rChar--);
-    if (rChar === 0) {
-      rDeleting = false;
-      ri = (ri + 1) % roles.length;
-    }
-  }
-
-  setTimeout(typeRole, rDeleting ? 50 : 100);
-}
-
-
-/* =========================
-   🔥 START BOTH
-========================= */
+/* START */
 typeName();
 typeRole();
-
-
-/* =========================
-   🔥 TOGGLE FIX
-========================= */
-document.getElementById("modeToggle").onclick = () => {
-  document.body.classList.toggle("dark-mode");
-};
-
-
-/* =========================
-   🔥 SCROLL ANIMATION
-========================= */
-window.addEventListener("scroll", () => {
-  document.querySelectorAll(".fade-in").forEach(el => {
-    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
-      el.classList.add("show");
-    }
-  });
-});
-
-</script>
-
-
 
 </script>
 
