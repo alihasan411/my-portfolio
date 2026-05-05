@@ -356,6 +356,62 @@ body.dark-mode textarea{background:#e2e8f0;color:#111;}
 }
 
 
+
+
+/* ===== DESKTOP FIX ===== */
+
+/* container width control */
+.projects {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* desktop par grid layout */
+@media (min-width: 768px) {
+  .projects {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+
+/* large desktop (3 cards per row) */
+@media (min-width: 1024px) {
+  .projects {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* hero text bada karo desktop pe */
+@media (min-width: 768px) {
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .hero h2 {
+    font-size: 28px;
+  }
+}
+
+/* navbar spacing desktop */
+@media (min-width: 768px) {
+  nav {
+    justify-content: center;
+    gap: 40px;
+  }
+}
+
+/* card width auto */
+.project-card {
+  width: 100%;
+}
+
+
+.hero {
+  padding: 100px 20px;
+}
+
+
 </style>
 </head>
 
