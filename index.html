@@ -397,18 +397,52 @@ window.addEventListener('scroll', () => {
 
 
 
-const text = "Hi, I'm Ali 👋";
-let index = 0;
 
-function typeEffect() {
-  if (index < text.length) {
-    document.getElementById("typing").innerHTML += text.charAt(index);
-    index++;
-    setTimeout(typeEffect, 80);
+
+const texts = [
+  "Hi, I'm Ali 👋",
+  "I'm a Frontend Developer 💻",
+  "I build modern websites 🚀"
+];
+
+let count = 0;
+let index = 0;
+let currentText = "";
+let letter = "";
+
+function type() {
+
+  if (count === texts.length) {
+    count = 0;
+  }
+
+  currentText = texts[count];
+  letter = currentText.slice(0, ++index);
+
+  document.getElementById("typing").innerHTML = letter;
+
+  if (letter.length === currentText.length) {
+    setTimeout(() => {
+      erase();
+    }, 1500);
+  } else {
+    setTimeout(type, 80);
   }
 }
 
-typeEffect();
+function erase() {
+  if (index > 0) {
+    letter = currentText.slice(0, --index);
+    document.getElementById("typing").innerHTML = letter;
+    setTimeout(erase, 40);
+  } else {
+    count++;
+    setTimeout(type, 300);
+  }
+}
+
+type();
+
 
 
 
