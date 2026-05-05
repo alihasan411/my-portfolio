@@ -436,6 +436,19 @@ body {
 
 
 
+
+@keyframes fadeLoop {
+  0% { opacity: 0; transform: translateY(30px); }
+  50% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-30px); }
+}
+
+.hero-content {
+  animation: fadeLoop 4s infinite;
+}
+
+
+
   </style>
 </head>
 
