@@ -175,6 +175,12 @@ animation: slideUp 1s ease-out forwards;
   gap: 25px;
 }
 
+
+.project-text {
+  opacity: 1;
+  transform: none;
+}
+
 /* CARD */
 .card {
   width: 100%;
@@ -584,6 +590,19 @@ body {
 
 
 
+.fade-in {
+  opacity: 1;
+  transform: none;
+  transition: 0.5s;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
   </style>
 </head>
 
@@ -854,13 +873,11 @@ function goContact() {
   });
 }
 
-
-window.addEventListener("load", () => {
+document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".fade-in").forEach(el => {
     el.classList.add("show");
   });
 });
-
 
 
 document.addEventListener("DOMContentLoaded", function() {
