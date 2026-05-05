@@ -363,13 +363,6 @@ body {
   100% { opacity: 1; }
 }
 
-
-
-body.dark-mode {
-  background-color: #121212;
-  color: white;
-}
-
 .dark-mode .hero {
   background: #1e1e1e;
 }
@@ -391,7 +384,7 @@ body.dark-mode {
   <a href="#contact">Contact</a>
 </nav>
 
-<button id="modeToggle">🌙</button>
+
 
 <!-- HERO -->
 <section id="hero" class="hero fade-in">
@@ -485,25 +478,6 @@ body.dark-mode {
 </section>
 
 <script>
-
-
-document.addEventListener("DOMContentLoaded", function() {
-  const btn = document.getElementById("modeToggle");
-
-  if (!btn) {
-    console.log("Button not found ❌");
-    return;
-  }
-
-  btn.addEventListener("click", function() {
-    console.log("Clicked ✅"); // test
-
-    document.body.classList.toggle("dark-mode");
-
-    btn.textContent =
-      document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
-  });
-});
 
 
 
