@@ -364,6 +364,21 @@ body {
 }
 
 
+
+body.dark-mode {
+  background-color: #121212;
+  color: white;
+}
+
+.dark-mode .hero {
+  background: #1e1e1e;
+}
+
+.dark-mode .contact {
+  background: #1e1e1e;
+}
+
+
   </style>
 </head>
 
@@ -471,18 +486,19 @@ body {
 
 <script>
 
-  const btn = document.getElementById("modeToggle");
 
-btn.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
+const toggleBtn = document.getElementById("modeToggle");
 
-  // icon change
-  if (document.body.classList.contains("dark")) {
-    btn.innerHTML = "☀️";
+toggleBtn.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+
+  if (document.body.classList.contains("dark-mode")) {
+    toggleBtn.textContent = "☀️";
   } else {
-    btn.innerHTML = "🌙";
+    toggleBtn.textContent = "🌙";
   }
 });
+
 
 
 const elements = document.querySelectorAll('.fade-in');
