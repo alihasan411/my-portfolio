@@ -1,639 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ali Portfolio</title>
 
-<title>My Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<style>
-/* GOOGLE FONT (optional) */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+    body {
+      font-family: Arial;
+      background: #ffffff;
+      color: #111;
+      transition: 0.3s;
+    }
 
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    /* DARK MODE */
+    body.dark {
+      background: #0f172a;
+      color: white;
+    }
 
-/* BODY */
-body {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #0f172a, #020617);
-  color: white;
-  transition: 0.4s;
-}
+    /* NAV */
+    nav {
+      background: #14b8a6;
+      padding: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
 
-/* LIGHT MODE */
-body.light {
-  background: linear-gradient(135deg, #f1f5f9, #ffffff);
-  color: #111;
-}
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-/* CONTAINER */
-.container {
-  width: 100%;
-  max-width: 1100px;
-  margin: auto;
-  padding: 15px;
-}
+    /* TOGGLE BUTTON */
+    #modeToggle {
+      position: fixed;
+      top: 60px;
+      left: 10px;
+      padding: 8px 10px;
+      border: none;
+      border-radius: 8px;
+      background: #14b8a6;
+      color: white;
+    }
 
-/* GLASS NAVBAR */
-nav {
-  position: sticky;
-  top: 10px;
-  margin: 10px;
-  padding: 12px;
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  background: rgba(20, 184, 166, 0.3);
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-}
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 30px;
+    }
 
-nav a {
-  text-decoration: none;
-  color: white;
-  font-weight: 600;
-  transition: 0.3s;
-}
+    .hero button {
+      padding: 10px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #14b8a6;
+      color: white;
+    }
 
-nav a:hover {
-  color: #14b8a6;
-}
+    /* PROJECTS */
+    .projects {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+    }
 
-/* TOGGLE BUTTON */
-#modeToggle {
-  position: fixed;
-  top: 90px;
-  left: 15px;
-  background: #14b8a6;
-  border: none;
-  padding: 10px;
-  border-radius: 50%;
-  color: white;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
+    .card {
+      width: 90%;
+      max-width: 300px;
+      background: #eee;
+      padding: 10px;
+      border-radius: 10px;
+    }
 
-/* HERO */
-.hero {
-  text-align: center;
-  padding: 50px 20px;
-}
+    body.dark .card {
+      background: #1e293b;
+    }
 
-.hero h1 {
-  font-size: 26px;
-  background: linear-gradient(90deg, #14b8a6, #22d3ee);
-  -webkit-background-clip: text;
-  color: transparent;
-}
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
 
-.hero button {
-  margin-top: 15px;
-  background: linear-gradient(45deg, #14b8a6, #22d3ee);
-  border: none;
-  padding: 10px 18px;
-  border-radius: 12px;
-  color: white;
-  box-shadow: 0 5px 20px rgba(20,184,166,0.4);
-}
+    .card h3 {
+      margin-top: 10px;
+    }
 
-/* PROJECT GRID */
-.projects {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 25px;
-}
+    .card button {
+      margin-top: 5px;
+      padding: 6px;
+      border: none;
+      border-radius: 6px;
+      background: #14b8a6;
+      color: white;
+    }
 
-/* GLASS CARD */
-.card {
-  width: 100%;
-  max-width: 320px;
-  border-radius: 25px;
-  padding: 15px;
-  backdrop-filter: blur(12px);
-  background: rgba(255,255,255,0.05);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-  transition: 0.4s;
-  position: relative;
-  overflow: hidden;
-}
+    /* CONTACT */
+    .contact {
+      padding: 20px;
+    }
 
-/* GLOW EFFECT */
-.card::before {
-  content: "";
-  position: absolute;
-  width: 150%;
-  height: 150%;
-  background: linear-gradient(120deg, transparent, rgba(20,184,166,0.3), transparent);
-  transform: rotate(25deg);
-  top: -100%;
-  left: -100%;
-  transition: 0.5s;
-}
+    input, textarea {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      background: #ddd;
+    }
 
-.card:hover::before {
-  top: 0;
-  left: 0;
-}
+    body.dark input,
+    body.dark textarea {
+      background: #1e293b;
+      color: white;
+    }
 
-/* HOVER LIFT */
-.card:hover {
-  transform: translateY(-8px) scale(1.02);
-}
-
-/* IMAGE */
-.card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 15px;
-}
-
-/* TEXT */
-.card h3 {
-  margin-top: 10px;
-}
-
-.card p {
-  font-size: 14px;
-  opacity: 0.8;
-}
-
-/* BUTTONS */
-.card button {
-  margin-top: 10px;
-  padding: 8px 14px;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-  transition: 0.3
-
-
-
-/* 📱 Mobile devices (max 768px) */
-@media (max-width: 768px) {
-
-  /* Navbar */
-  nav {
-    flex-direction: column;
- width: 100%;
-    align-items: flex-start;
-  }
-
-
-
-  /* Hero section */
-  .hero h1 {
-    font-size: 22px;
-  }
-
-  .hero p {
-    font-size: 14px;
-  }
-
-  /* Project cards */
-  .projects-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .project-card {
-    width: 100%;
-    max-width: 320px;
-
- margin: 20px auto;
-  border-radius: 15px;
-  }
-
-
-  /* Buttons */
-  .project-card a {
-    display: block;
-    width: 80%;
-    margin: 10px auto;
-  }
-
-  /* Timeline (routine) */
-  .timeline {
-    width: 100%;
-    padding-left: 15px;
-  }
-
-  /* Contact boxes */
-  .contact-boxes {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  /* Form inputs */
-  input, textarea {
-    width: 100%;
-  }
-}
-
-
-
-
-/* SMOOTH SCROLL */
-html {
-  scroll-behavior: smooth;
-}
-
-/* FADE IN ANIMATION */
-.fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeUp 1s ease forwards;
-}
-
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* HERO TEXT ANIMATION */
-.hero h1 {
-  animation: slideDown 1s ease;
-}
-
-@keyframes slideDown {
-  from {
-    transform: translateY(-40px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-/* BUTTON HOVER GLOW */
-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(20,184,166,0.6);
-}
-
-/* CARD HOVER ANIMATION */
-.card {
-  transition: 0.4s;
-}
-
-.card:hover {
-  transform: translateY(-10px) scale(1.03);
-}
-
-/* IMAGE ZOOM ON HOVER */
-.card img {
-  transition: 0.4s;
-}
-
-.card:hover img {
-  transform: scale(1.1);
-}
-
-/* NAV LINK HOVER */
-nav a {
-  position: relative;
-}
-
-nav a::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  background: #14b8a6;
-  left: 0;
-  bottom: -5px;
-  transition: 0.3s;
-}
-
-nav a:hover::after {
-  width: 100%;
-}
-
-/* INPUT FOCUS EFFECT */
-input:focus, textarea:focus {
-  outline: none;
-  box-shadow: 0 0 10px #14b8a6;
-}
-
-/* SECTION SPACING */
-section {
-  margin-bottom: 40px;
-}
-
-
-
-</style>
-
+    .send-btn {
+      margin-top: 10px;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 8px;
+      background: #14b8a6;
+      color: white;
+    }
+  </style>
 </head>
 
 <body>
 
-<section class="hero">
-<h1>Hi, I'm <span id="typing"></span></h1>
-<p>Front-End Developer</p>
-<p>I build modern responsive websites using HTML, CSS & JavaScript.</p>
-
-<a href="#projects" class="btn">View My Work</a>
+<!-- NAV -->
+<nav>
+  <a href="#">Home</a>
+  <a href="#">Projects</a>
+  <a href="#">Contact</a>
+</nav>
 
 <button id="modeToggle">🌙</button>
 
-  
-  
+<!-- HERO -->
+<section class="hero">
+  <h1>Hi, I'm Ali</h1>
+  <p>Front-End Developer</p>
+  <button>View My Work</button>
 </section>
 
-<nav class="navbar">
-  <div class="nav-left">
-    <a href="#home">Home</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+<!-- PROJECTS -->
+<section class="projects">
+
+  <div class="card">
+    <img src="https://picsum.photos/300/200">
+    <h3>Project 1</h3>
+    <p>Simple project description</p>
+    <button>GitHub</button>
+    <button>View</button>
   </div>
 
-  <div class="nav-right">
-    <button id="modeBtn" onclick="darkMode()">🌙</button>
+  <div class="card">
+    <img src="https://picsum.photos/300/201">
+    <h3>Project 2</h3>
+    <p>Simple project description</p>
+    <button>GitHub</button>
+    <button>View</button>
   </div>
-</nav>
-
-
-
-<section id="home" class="home-container">
-
-  <div>
-    <p>Front-End Developer</p>
-    <p>I build modern responsive websites using HTML, CSS & JavaScript.</p>
-    <a href="#projects" class="btn">View My Work</a>
-  </div>
-
-    <img src="IMG-20260502-WA0003.jpg">
 
 </section>
 
-
-<section id="skills">
-  <h2>Skills</h2>
-
-  <div class="skills-container">
-    <div class="skill">
-      <p>HTML</p>
-      <div class="bar"><div class="progress html"></div></div>
-    </div>
-
-    <div class="skill">
-      <p>CSS</p>
-      <div class="bar"><div class="progress css"></div></div>
-    </div>
-
-    <div class="skill">
-      <p>JavaScript</p>
-      <div class="bar"><div class="progress js"></div></div>
-    </div>
-  </div>
-</section>
-
-
- 
-
- <section id="projects">
-  <h2>My Projects</h2>
-
-   <div class="projects-container">
-
-    <div class="project-card">
-<img src="IMG-20260502-WA0003.jpg">
-      <h3>My Portfolio Website</h3>
-      <p>This is my first website built using HTML, CSS, JS</p>
-
-<div class="project-buttons">
-    <a href="https://github.com/alihasan411/my-portfolio" target="_blank">GitHub</a>
-
-     <a href="myportfolio/index.html" target="_blank">View Project</a>
-    </div>
-</div>
-
-  
-
-  <div class="project-card">
-<img src="IMG-20260502-WA0003.jpg">
-      <h3>To-Do List</h3>
-      <p>Manage daily tasks using JavaScript</p>
-
-   <div class="project-buttons">
-   <a href="https://github.com/alihasan411/todo" target="_blank">GitHub</a>
-   <a href="todo.html" target="_blank">View Project</a>
-</div>
-
-</div>
-
-  
-
-
-
-  <div class="project-card">
-        <img src="IMG-20260502-WA0003.jpg">
-
-    <h3>Calculator</h3>
-    <p>A simple calculator using JavaScript.</p>
-
-    
-      <div class="project-buttons">
-        <a href="https://github.com/alihasan411/calculator" target="_blank">GitHub</a>
-        <a href="calculator.html" target="_blank">View Project</a>
-      </div>
-
-</div>
-
-
-
-
-<div class="project-card">
-<img src="IMG-20260502-WA0003.jpg">
-  <h3>Weather App</h3>
-  <p>Check live weather using API</p>
-
-
-  <div class="project-buttons">
-        <a href="https://github.com/alihasan411/weather" target="_blank">GitHub</a>
-        <a href="weather.html" target="_blank">View Project</a>
-      </div>
-</div>
-
-
-
-
-
-<section id="routine">
-  <h2>My Daily Routine</h2>
-
-  <div class="timeline">
-    <div class="timeline-item">
-      <span class="dot"></span>
-      <p>🌅 Wakeup</p>
-    </div>
-
-    <div class="timeline-item">
-      <span class="dot"></span>
-      <p>👨‍🏫 Teach Students</p>
-    </div>
-
-    <div class="timeline-item">
-      <span class="dot"></span>
-      <p>💻 Learn Coding</p>
-    </div>
-  </div>
-</section>
-
-
-
-<section id="contact">
+<!-- CONTACT -->
+<section class="contact">
   <h2>Contact Me</h2>
-
-  <div class="contact-container">
-
-
-    <div class="contact-card">
-      <p>📧 Email</p>
-      <span>alihasan@example.com</span>
-    </div>
-
-    <div class="contact-card">
-      <p>📱 WhatsApp</p>
-      <span>0300-1234567</span>
-    </div>
-
-  </div>
-
-  <form class="contact-form">
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Your Email" required>
-     <textarea placeholder="Your Message" required></textarea>
-     <button type="submit" class="btn">Send Message</button>
-  </form>
-
+  <input type="text" placeholder="Your Name">
+  <input type="email" placeholder="Your Email">
+  <textarea placeholder="Your Message"></textarea>
+  <button class="send-btn">Send</button>
 </section>
-
-
-
-
-
-
-
 
 <script>
+  const btn = document.getElementById("modeToggle");
 
-function sendMsg(){
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let msg = document.getElementById("msg").value;
+  btn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
 
-    if(name === "" || email === "" || msg === ""){
-        alert("Please fill all fields");
+    if (document.body.classList.contains("dark")) {
+      btn.innerHTML = "☀️";
     } else {
-        alert("Message sent successfully!");
-
-        // 🔥 form reset
-        document.getElementById("name").value = "";
-        document.getElementById("email").value = "";
-        document.getElementById("msg").value = "";
-    }
-}
-
-
-
-function darkMode(){
-  document.body.classList.toggle("dark");
-
-  let btn = document.getElementById("modeBtn");
-
-  if(document.body.classList.contains("dark")){
-    btn.innerHTML = "☀️";
-  } else {
-    btn.innerHTML = "🌙";
-  }
-}
-
-
-
-
-
-
-
-
-const text = ["Ali Hasan", "Web Developer", "Frontend Learner"];
-let index = 0;
-let charIndex = 0;
-
-function typeEffect() {
-  if (charIndex < text[index].length) {
-    document.getElementById("typing").textContent += text[index].charAt(charIndex);
-    charIndex++;
-    setTimeout(typeEffect, 100);
-  } else {
-    setTimeout(eraseEffect, 1500);
-  }
-}
-
-function eraseEffect() {
-  if (charIndex > 0) {
-    let currentText = text[index].substring(0, charIndex - 1);
-    document.getElementById("typing").textContent = currentText;
-    charIndex--;
-    setTimeout(eraseEffect, 50);
-  } else {
-    index = (index + 1) % text.length;
-    setTimeout(typeEffect, 500);
-  }
-}
-
-typeEffect();
-
-
-
-
-
-
-
-// load saved mode
-if (localStorage.getItem("mode") === "dark") {
-  document.body.classList.add("dark");
-}
-
-// toggle
-btn.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-
-  if (document.body.classList.contains("dark")) {
-    localStorage.setItem("mode", "dark");
-  } else {
-    localStorage.setItem("mode", "light");
-  }
-});
-
-
-
-
-
-const elements = document.querySelectorAll('.fade-in');
-
-window.addEventListener('scroll', () => {
-  elements.forEach(el => {
-    const pos = el.getBoundingClientRect().top;
-
-    if (pos < window.innerHeight - 100) {
-      el.style.opacity = "1";
-      el.style.transform = "translateY(0)";
+      btn.innerHTML = "🌙";
     }
   });
-});
-
-
 </script>
 
 </body>
