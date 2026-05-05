@@ -27,17 +27,17 @@ body {
 /* DARK MODE */
 body.dark-mode {
   background: #ffffff;
-  color: black;
+  color: #111;
 }
 
-/* BG ANIMATION */
+/* BG */
 @keyframes bgMove {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* NAVBAR */
+/* NAV */
 nav {
   margin: 10px;
   padding: 12px;
@@ -49,29 +49,6 @@ nav {
   gap: 25px;
 }
 
-nav a {
-  text-decoration: none;
-  color: inherit;
-  font-weight: 600;
-  position: relative;
-}
-
-/* NAV HOVER */
-nav a::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  background: #14b8a6;
-  left: 0;
-  bottom: -5px;
-  transition: 0.3s;
-}
-
-nav a:hover::after {
-  width: 100%;
-}
-
 /* HERO */
 .hero {
   min-height: 100vh;
@@ -79,21 +56,32 @@ nav a:hover::after {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: linear-gradient(135deg, #141e30, #243b55);
-  padding: 20px;
-  position: relative;
 }
 
-.hero-content h1 {
+.hero-content {
+  animation: fadeUp 1s ease forwards;
+}
+
+.hero h1 {
   font-size: 32px;
-  margin-bottom: 10px;
 }
 
-.hero-content h2 {
-  font-size: 20px;
+.hero h2 {
   color: #00e5ff;
-  height: 25px;
-  margin-bottom: 20px;
+  height: 30px;
+  margin: 10px 0;
+}
+
+/* HERO ANIMATION */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* BUTTON */
@@ -105,56 +93,38 @@ nav a:hover::after {
   text-decoration: none;
 }
 
-/* TOGGLE BUTTON FIX */
+/* TOGGLE */
 #modeToggle {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: #00e5ff;
+  position: fixed;
+  top: 15px;
+  right: 15px;
   border: none;
   padding: 10px;
   border-radius: 50%;
   cursor: pointer;
 }
 
-/* PROJECTS GRID FIX */
+/* PROJECTS */
 .projects {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 25px;
-  padding: 40px 20px;
-  justify-items: center;
-}
-
-/* DESKTOP GRID */
-@media (min-width: 768px) {
-  .projects {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .projects {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
 }
 
 /* CARD */
 .project-card {
-  width: 100%;
-  max-width: 320px;
-  border-radius: 20px;
+  width: 300px;
   padding: 15px;
+  border-radius: 15px;
   background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-  transition: 0.4s;
   text-align: center;
+  transition: 0.3s;
 }
 
 .project-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 0 25px rgba(20,184,166,0.5);
 }
 
 /* IMAGE */
@@ -162,90 +132,22 @@ nav a:hover::after {
   position: relative;
   aspect-ratio: 16/9;
   overflow: hidden;
-  border-radius: 10px;
 }
 
 .img-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: 0.4s;
 }
 
-.img-box:hover img {
-  transform: scale(1.08);
-}
-
-/* TAG */
-.tag {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: #00bcd4;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 10px;
-  font-size: 12px;
-}
-
-/* OVERLAY */
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: 0.3s;
-}
-
-.img-box:hover .overlay {
-  opacity: 1;
-}
-
-.overlay a {
-  background: #00bcd4;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 20px;
-  text-decoration: none;
-}
-
-/* CONTACT */
-#contact {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.contact-form {
-  max-width: 420px;
-  margin: 40px auto;
-  padding: 25px;
-  border-radius: 20px;
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(10px);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  padding: 14px;
-  border: none;
-  border-radius: 12px;
-  outline: none;
-}
-
-/* ANIMATION FIX */
+/* ANIMATION */
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
-  transition: 0.6s ease;
+  transition: 0.6s;
 }
 
-.fade-in.show {
+.show {
   opacity: 1;
   transform: translateY(0);
 }
@@ -255,12 +157,14 @@ nav a:hover::after {
 
 <body>
 
+<!-- NAV -->
 <nav>
   <a href="#hero">Home</a>
   <a href="#projects">Projects</a>
   <a href="#contact">Contact</a>
 </nav>
 
+<!-- HERO -->
 <section class="hero" id="hero">
 
 <button id="modeToggle">🌙</button>
@@ -273,93 +177,85 @@ nav a:hover::after {
 
 </section>
 
-<section id="projects" class="projects fade-in">
+<!-- PROJECTS -->
+<section id="projects" class="projects">
 
-<!-- CARD -->
 <div class="project-card fade-in">
   <div class="img-box">
-    <span class="tag">Planner</span>
     <img src="IMG-20260502-WA0003.jpg">
-    <div class="overlay">
-      <a href="smart-daily-planner.html" target="_blank">Live Demo</a>
-    </div>
   </div>
   <h3>Smart Daily Planner</h3>
 </div>
 
 <div class="project-card fade-in">
   <div class="img-box">
-    <span class="tag">Quiz</span>
     <img src="creatvise-qOA1-UjXxSc-unsplash.jpg">
-    <div class="overlay">
-      <a href="smart-quiz-app.html" target="_blank">Live Demo</a>
-    </div>
   </div>
-  <h3>Quiz App</h3>
+  <h3>Smart Quiz App</h3>
+</div>
+
+<div class="project-card fade-in">
+  <div class="img-box">
+    <img src="jonathan-borba-0Nrq6UvFpI8-unsplash.jpg">
+  </div>
+  <h3>Todo App</h3>
+</div>
+
+<div class="project-card fade-in">
+  <div class="img-box">
+    <img src="cardmapr-nl-tvzykmBf3r0-unsplash.jpg">
+  </div>
+  <h3>Calculator</h3>
+</div>
+
+<div class="project-card fade-in">
+  <div class="img-box">
+    <img src="raychan-cFiQbSH7-RY-unsplash.jpg">
+  </div>
+  <h3>Weather App</h3>
 </div>
 
 </section>
 
-<section id="contact" class="fade-in">
-
-<h2>Contact Me</h2>
-
-<form class="contact-form">
-  <input type="text" placeholder="Your Name" required>
-  <input type="email" placeholder="Your Email" required>
-  <textarea placeholder="Your Message"></textarea>
-  <button type="submit">Send Message</button>
-</form>
-
+<!-- CONTACT -->
+<section id="contact" style="padding:40px;text-align:center;">
+  <h2>Contact Me</h2>
 </section>
 
 <script>
 
-/* FADE */
-const elements = document.querySelectorAll('.fade-in');
+/* TYPING */
+const words = ["Frontend Developer","Web Designer","Creative Coder"];
+let i=0,j=0,del=false;
 
-window.addEventListener('scroll', () => {
-  elements.forEach(el => {
-    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
-      el.classList.add('show');
-    }
-  });
-});
+function type(){
+  let el=document.getElementById("typing");
+  let w=words[i];
 
-/* TYPING FIX */
-const textArray = ["Frontend Developer", "Web Designer", "Creative Coder"];
-let i = 0, j = 0, current = "", deleting = false;
-
-function type() {
-  current = textArray[i];
-
-  if (!deleting) {
-    document.getElementById("typing").textContent = current.slice(0, j++);
-    if (j > current.length) {
-      deleting = true;
-      setTimeout(type, 1000);
-      return;
-    }
+  if(!del){
+    el.textContent=w.substring(0,j++);
+    if(j>w.length){del=true;setTimeout(type,1000);return;}
   } else {
-    document.getElementById("typing").textContent = current.slice(0, j--);
-    if (j === 0) {
-      deleting = false;
-      i = (i + 1) % textArray.length;
-    }
+    el.textContent=w.substring(0,j--);
+    if(j===0){del=false;i=(i+1)%words.length;}
   }
-
-  setTimeout(type, deleting ? 50 : 100);
+  setTimeout(type,del?50:100);
 }
 type();
 
-/* TOGGLE FIX */
-const toggleBtn = document.getElementById("modeToggle");
-
-toggleBtn.onclick = () => {
+/* TOGGLE */
+document.getElementById("modeToggle").onclick=()=>{
   document.body.classList.toggle("dark-mode");
-  toggleBtn.textContent =
-    document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
 };
+
+/* SCROLL ANIMATION */
+window.addEventListener("scroll",()=>{
+  document.querySelectorAll(".fade-in").forEach(el=>{
+    if(el.getBoundingClientRect().top < window.innerHeight-100){
+      el.classList.add("show");
+    }
+  });
+});
 
 </script>
 
