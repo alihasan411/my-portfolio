@@ -385,17 +385,19 @@ body {
 </section>
 
 <script>
+
   const btn = document.getElementById("modeToggle");
 
-  btn.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
+btn.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
 
-    if (document.body.classList.contains("dark")) {
-      btn.innerHTML = "☀️";
-    } else {
-      btn.innerHTML = "🌙";
-    }
-  });
+  // icon change
+  if (document.body.classList.contains("dark")) {
+    btn.innerHTML = "☀️";
+  } else {
+    btn.innerHTML = "🌙";
+  }
+});
 
 
 const elements = document.querySelectorAll('.fade-in');
