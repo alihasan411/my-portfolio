@@ -67,11 +67,19 @@ nav a {
   margin-left: 15px;
 }
 
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 /* HERO */
 /* HERO SECTION */
 .hero {
   height: 100vh;
   display: flex;
+min-height: 100vh;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -79,6 +87,10 @@ nav a {
   color: white;
   padding: 20px;
  position: relative;
+
+width: 100%;
+  max-width: 1200px;
+  margin: auto;
 }
 
 
@@ -540,6 +552,34 @@ body {
 .dark-toggle:hover {
   transform: scale(1.1);
   transition: 0.3s;
+}
+
+
+/* 📱 Mobile (default) */
+body {
+  font-size: 14px;
+}
+
+/* 💻 Tablet */
+@media (min-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+}
+
+/* 🖥 Desktop */
+@media (min-width: 1024px) {
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .navbar {
+    padding: 20px 50px;
+  }
 }
 
 
